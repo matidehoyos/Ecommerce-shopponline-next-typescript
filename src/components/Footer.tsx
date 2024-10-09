@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="w-full pt-20 pb-10 px-12 bg-gray-600">
+    <footer className="w-full pt-20 pb-10 px-12 bg-gray-600 overflow-hidden">
       <div className="container py-10 px-20 flex justify-between items-start bg-gray-300">
         <div className="w-auto flex justify-center">
           <Image src="/logo.png" alt="Logo Shop online" width={80} height={80} className="w-[80%] h-auto"/>

@@ -37,18 +37,25 @@ const NavBar = () => {
   return (
     <div className="w-full text-gray-700 bg-gray-200">
       <div className='flex flex-col'>
-        <div className="container w-[94%] mx-auto mb-3 flex justify-between items-center py-4 px-3 bg-gray-200">
+        <div className="container md:w-[94%] mx-auto mb-2 md:mb-3 pt-2 md:py-4 px-1 md:px-3 flex justify-between items-center bg-gray-200">
           <Link href="/">
-            <Image src="/logo.png" alt="Tienda Online Logo" layout='responsive' width={120} height={60} className="w-[120px] h-[60px] object-contain" />
+              <Image 
+                  src="/logo.png" 
+                  alt="Tienda Online Logo" 
+                  layout='responsive' 
+                  width={200} 
+                  height={60} 
+                  className="w-[200px] h-[60px] md:w-[120px] md:h-[60px] object-contain" 
+              />
           </Link>
           <SearchBar />
-          <div className="flex items-center space-x-10">
+          <div className="flex items-center space-x-6 md:space-x-10">
             <div className="relative">
               <button onClick={toggleCartDrawer}>
-                <FontAwesomeIcon icon={faShoppingCart} className="text-2xl text-gray-700 hover:text-gray-900" />
+                <FontAwesomeIcon icon={faShoppingCart} className="text-lg md:text-2xl text-gray-700 hover:text-gray-900" />
               </button>
               {cartCount > 0 && (
-                <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
+                <span className="inline-flex items-center justify-center md:px-2 py-1 text-xs font-bold leading-none text-red-500 md:text-red-100 bg-transparent md:bg-red-600 rounded-full">
                   {cartCount} 
                 </span>
               )} 
@@ -58,7 +65,7 @@ const NavBar = () => {
             </Link>
             <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-gray-400 hover:text-black focus:outline-none focus:text-black">
               {!isOpen ? (
-                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="h-5 w-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
               ) : (

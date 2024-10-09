@@ -57,15 +57,15 @@ const Categories = () => {
   };
 
   return (
-    <div className="w-[94%] mx-auto overflow-visible">
-      <div className="container w-full hidden xl:flex items-center justify-between bg-gray-800">
-        <Link href="/shop" className="px-[25px] py-2 text-center text-red-500 text-xl font-bold cursor-pointer hover:text-red-500 ">
+    <div className="md:w-[94%] mx-auto overflow-hidden md:overflow-visible ">
+      <div className="container w-auto md:w-full flex flex-nowrap items-center justify-start md:justify-between overflow-x-scroll bg-gray-700 md:bg-gray-800">
+        <Link href="/shop" className="px-2 md:px-[25px] md:py-2 text-center text-red-500 text-base md:text-xl font-semibold md:font-bold md:cursor-pointer md:hover:text-red-500 ">
           All Products
         </Link>
 
         {Object.keys(groupedCategories).map((mainCategory, index) => (
-          <div key={index} className="py-2 relative group flex-1">
-            <button className="w-full h-full text-gray-100 text-xl font-bold cursor-pointer hover:text-red-500">
+          <div key={index} className="md:py-2 relative group md:flex-1">
+            <button className="w-full h-full text-gray-100 text-base md:text-xl font-semibold md:font-bold md:cursor-pointer md:hover:text-red-500">
               {mainCategory}
             </button>
             <div className="w-full py-0 absolute max-h-0 overflow-hidden group-hover:max-h-[200px] bg-gray-800 z-10 transition-height duration-1000 ease-in-out">
