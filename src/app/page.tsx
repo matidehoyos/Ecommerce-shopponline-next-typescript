@@ -9,6 +9,8 @@ import Oferts from "@/components/Oferts";
 import Head from "@/components/Head";
 import { useLoading } from '@/contexts/loadingContext';
 import Loader from '@/components/Loader';
+import Categories from '@/components/CategoriesMovil';
+import CategoriesMovil from '@/components/CategoriesMovil';
 
 export default function Home() {
   const { loading, setLoading } = useLoading();
@@ -29,6 +31,7 @@ export default function Home() {
         <Head />
       </header>
       <main>
+        <CategoriesMovil />
         <Populares />
         <Featureds />
         <Oferts />

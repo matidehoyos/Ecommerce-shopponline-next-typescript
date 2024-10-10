@@ -57,8 +57,8 @@ const Categories = () => {
   };
 
   return (
-    <div className="md:w-[94%] mx-auto overflow-hidden md:overflow-visible ">
-      <div className="container w-auto md:w-full flex flex-nowrap items-center justify-start md:justify-between overflow-x-scroll bg-gray-700 md:bg-gray-800">
+    <div className="md:w-[94%] mx-auto overflow-visible">
+      <div className="container hidden md:w-full md:flex flex-nowrap items-center justify-start md:justify-between bg-gray-700 md:bg-gray-800">
         <Link href="/shop" className="px-2 md:px-[25px] md:py-2 text-center text-red-500 text-base md:text-xl font-semibold md:font-bold md:cursor-pointer md:hover:text-red-500 ">
           All Products
         </Link>
@@ -79,7 +79,7 @@ const Categories = () => {
         ))}
       </div>
 
-      <div className="container py-12 px-8 xl:hidden">
+      <div className="container py-12 px-8 hidden bg-gray-600">
         <Carousel
           showArrows={true}
           showThumbs={false}
@@ -88,13 +88,20 @@ const Categories = () => {
           autoPlay={true}
           interval={3000}
         >
-          {ungroupedCategories.map((category, index) => (
-            <div key={index} className="w-full p-0 pb-6 flex flex-col items-center justify-center border-2 border-gray-300 bg-gray-50 rounded-xl overflow-hidden">
-              <p className="mt-4 text-gray-800 text-2xl font-bold">
-                {category.name}
-              </p>
+          {Object.keys(groupedCategories).map((mainCategory, index) => (
+          <div key={index} className="md:py-2 relative group md:flex-1">
+            <button className="w-full h-full text-gray-100 text-base md:text-xl font-semibold md:font-bold md:cursor-pointer md:hover:text-red-500">
+              {mainCategory}
+            </button>
+            <div className="w-full py-0 overflow-hidden group-hover:max-h-[200px] bg-gray-800 z-10 transition-height duration-1000 ease-in-out">
+              {groupedCategories[mainCategory].map((subCategory, subIndex) => (
+                <button key={subIndex} onClick={() => handleCategoryChange(subCategory)} className="w-full flex flex-col justify-center items-center text-center px-2 py-1">
+                  <h2 className='w-full text-gray-100 text-center font-semibold hover:bg-red-500'>{subCategory.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</h2>
+                </button>
+              ))}
             </div>
-          ))}
+          </div>
+        ))}
         </Carousel>
       </div>
     </div>

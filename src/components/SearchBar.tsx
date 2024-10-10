@@ -31,7 +31,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="hidden md:block w-[380px] relative">
+    <div className="md:block md:w-[380px] relative">
       <form onSubmit={handleSearchSubmit} className="flex border border-gray-300 rounded-md overflow-hidden bg-white py-2">
         <input
           type="text"
