@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-10 md:pt-20 md:pb-10 px-[3%] md:px-12 bg-gray-400 md:bg-gray-600 overflow-hidden">
-      <div className="container p-4 md:py-10 md:px-20 flex flex-col md:flex-row md:justify-between items-start bg-gray-300">
+    <footer className="w-full py-10 md:pt-20 md:pb-10 px-[3%] md:px-12 bg-gray-400 md:bg-gray-400 overflow-hidden">
+      <div className="container p-4 md:py-10 md:px-4 flex flex-col md:flex-row md:justify-between items-start bg-transparent md:bg-gray-300">
         <div className="w-auto flex md:justify-center">
           <Image src="/logo.png" alt="Logo Shop online" width={200} height={100} className="w-full md:w-[80%] h-auto"/>
         </div>
@@ -63,7 +63,7 @@ const Footer = () => {
           </form>
         </div>
       </div>
-      <div className="text-center text-gray-900 md:text-gray-200 font-semibold mt-8">
+      <div className="text-center text-gray-900 md:text-gray-950 font-semibold mt-8">
         <p>Copyright 2024, All Rights Reserved.</p>
       </div>
     </footer>

@@ -3,6 +3,7 @@ import { useProducts } from '../contexts/productsContext';
 import { useState, useEffect, useMemo } from 'react';
 import Controls from './Controls'; 
 import OnSaleCard from './OnSaleCard';
+import OnSaleCardMov from './OnSaleCardMov';
 
 const Oferts = () => {
   const { products } = useProducts();
@@ -47,22 +48,30 @@ const Oferts = () => {
   );
 
   return (
-    <div className='md:w-[92%] md:my-20 mx-auto pt-14 pb-20 px-[3%] md:px-[2%] md:rounded-md bg-red-200 md:bg-red-400'>
+    <div className='md:w-[92%] md:my-20 mx-auto pt-14 pb-20 px-[3%] md:px-[2%] md:rounded-md bg-red-200 md:bg-red-300'>
       <div className='mb-6 flex items-center justify-between'>
-        <h2 className='text-white font-bold text-xl'>ON SALE</h2>
-        <Controls
-          currentPage={currentPage}
-          itemsPerPage={itemsPerPage}
-          totalItems={shuffled.length}
-          handlePreviousPage={handlePreviousPage}
-          handleNextPage={handleNextPage}
-        />
+        <h2 className='text-gray-800 font-bold text-xl'>ON SALE</h2>
+        <div className='hidden md:block'>
+          <Controls
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            totalItems={shuffled.length}
+            handlePreviousPage={handlePreviousPage}
+            handleNextPage={handleNextPage}
+          />
       </div>
-      <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-6">
+      </div>
+      <div className="w-full hidden md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-6">
         {currentProducts.map(product => (
           <OnSaleCard product={product} key={product.id} />
         ))}
       </div>
+      <div className="w-full flex flex-nowrap overflow-x-scroll md:hidden gap-4">
+        {shuffled.map(product => (
+          <OnSaleCardMov product={product} key={product.id} />
+        ))}
+      </div>
+
     </div>
   );
 };

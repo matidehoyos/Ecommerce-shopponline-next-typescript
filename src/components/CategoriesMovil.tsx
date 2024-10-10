@@ -25,8 +25,8 @@ const CategoriesMovil = () => {
   }, [products]);
 
   return (
-    <div className="flex flex-col md:hidden bg-gray-400">
-    <div className="py-4 px-[3%] md:hidden">
+    <div className="flex flex-col md:hidden bg-gray-200">
+    <div className="py-4 px-[2%] md:hidden">
         <SearchBar />
     </div>
       <div className="container px-2 pb-4 flex flex-nowrap items-center justify-start gap-[5px] overflow-x-scroll scrollbar-hide">
@@ -40,7 +40,7 @@ const CategoriesMovil = () => {
           <Link
             href={category.url}
             key={category.slug}
-            className="h-[50px] min-w-[130px] flex items-center justify-center text-gray-900 text-lg text-center font-medium rounded-md bg-gray-300 leading-[20px] border border-gray-500"
+            className="h-[50px] min-w-[140px] flex items-center justify-center text-gray-700 text-lg text-center font-medium rounded-md bg-red-100 leading-[20px] border border-white"
           >
             {category.name}
           </Link>

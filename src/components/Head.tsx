@@ -11,13 +11,13 @@ const Head = () => {
                  height={100} 
                  className="w-full md:h-auto object-cover" />
         </div>
-        <div className="w-[96%] h-auto mx-auto md:hidden rounded-md bg-gradient-to-r from-white to-gray-300 overflow-hidden">
+        <div className="w-full h-auto md:hidden bg-gradient-to-b from-white to-gray-200 overflow-hidden">
           <Image 
             src="/bgMov.png" 
             alt="Logo de ShoppOnline"  
             width={100} 
             height={100} 
-            className="w-full h-auto object-cover" 
+            className="w-full h-auto object-contain border border-gray-300" 
           />
         </div>
     </div>

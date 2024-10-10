@@ -16,7 +16,7 @@ const NavBar = () => {
 
   
   return (
-    <nav className="w-full text-gray-950 md:text-gray-700 bg-gray-400 md:bg-gray-200">
+    <nav className="w-full text-gray-950 md:text-gray-700 bg-gray-300 md:bg-gray-200">
       <div className="flex flex-col">
         <div className="container md:w-[94%] mx-auto mb-2 md:mb-3 pt-2 md:py-4 px-1 md:px-3 flex justify-between items-center md:bg-gray-200">
           <Link href="/" aria-label="Go to homepage">

@@ -74,7 +74,7 @@ const ProductDetail = () => {
           </>
         )}
       </div>
-      <div className='w-full mx-auto px-4 md:px-0 py-14 md:py-20 flex md:justify-center items-stretch gap-2 overflow-x-scroll'>
+      <div className='w-full mx-auto px-4 md:px-0 py-14 md:py-20 flex md:justify-center items-stretch gap-2 overflow-x-scroll md:overflow-hidden'>
         {product?.reviews?.map((review, index) => (
           <ReviewCard review={review} key={index} />
         ))}

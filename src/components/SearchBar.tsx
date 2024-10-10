@@ -32,7 +32,7 @@ const SearchBar = () => {
 
   return (
     <div className="md:block md:w-[380px] relative">
-      <form onSubmit={handleSearchSubmit} className="flex border border-gray-300 rounded-md overflow-hidden bg-white py-2">
+      <form onSubmit={handleSearchSubmit} className="flex border border-gray-400 md:border-gray-300 rounded-md overflow-hidden bg-white py-2">
         <input
           type="text"
           value={searchQuery}

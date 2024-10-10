@@ -3,6 +3,7 @@ import { useProducts } from '../contexts/productsContext';
 import { useState, useEffect, useMemo } from 'react';
 import ProductCard from './ProductCard';
 import Controls from './Controls';
+import ProductMovilCard from './ProductMovilCard';
 
 const Populares = () => {
   const { products } = useProducts();
@@ -47,20 +48,27 @@ const Populares = () => {
   );
 
   return (
-    <div className='w-[94%] md:w-[90%] mx-auto pt-8 md:pt-14 pb-4 md:pb-20'>
+    <div className='w-[94%] md:w-[90%] mx-auto py-16 md:py-24'>
       <div className='mb-2 md:mb-6 flex justify-between'>
-        <h2 className='text-gray-900 font-bold text-xl'>Popular products</h2>
-        <Controls
-          currentPage={currentPage}
-          itemsPerPage={itemsPerPage}
-          totalItems={shuffled.length}
-          handlePreviousPage={handlePreviousPage}
-          handleNextPage={handleNextPage}
-        />
+        <h2 className='text-gray-800 md:text-gray-900 md:font-bold text-xl'>Popular products</h2>
+        <div className='hidden md:block'>
+          <Controls
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            totalItems={shuffled.length}
+            handlePreviousPage={handlePreviousPage}
+            handleNextPage={handleNextPage}
+          />
+        </div>
       </div>
-      <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-6">
+      <div className="w-full hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-6">
           {currentProducts.map(product => (
               <ProductCard product={product} key={product.id} />
+          ))}
+      </div>
+      <div className="w-full flex flex-nowrap overflow-x-scroll md:hidden gap-1">
+          {shuffled.map(product => (
+              <ProductMovilCard product={product} key={product.id} />
           ))}
       </div>
     </div>
