@@ -64,7 +64,7 @@ const NavBar = () => {
         <Categories />
       </div>
       {isOpen && (
-        <div className="absolute w-full px-3 py-2 bg-white lg:hidden">
+        <div className="absolute w-full px-3 py-2 bg-white lg:hidden z-50">
           <Link href="/login" className="block py-2 font-bold hover:text-red-600">
             Login
           </Link>

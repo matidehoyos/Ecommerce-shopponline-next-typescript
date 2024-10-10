@@ -19,7 +19,7 @@ const Oferts = () => {
       } else if (window.innerWidth >= 640) {
         setItemsPerPage(2);
       } else {
-        setItemsPerPage(1);
+        setItemsPerPage(2);
       }
     };
 
@@ -47,8 +47,8 @@ const Oferts = () => {
   );
 
   return (
-    <div className='w-[92%] my-20 mx-auto pt-14 pb-20 px-[2%] rounded-md bg-red-400'>
-      <div className='mb-6 flex justify-between'>
+    <div className='md:w-[92%] md:my-20 mx-auto pt-14 pb-20 px-[3%] md:px-[2%] md:rounded-md bg-red-200 md:bg-red-400'>
+      <div className='mb-6 flex items-center justify-between'>
         <h2 className='text-white font-bold text-xl'>ON SALE</h2>
         <Controls
           currentPage={currentPage}
@@ -58,7 +58,7 @@ const Oferts = () => {
           handleNextPage={handleNextPage}
         />
       </div>
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-6">
         {currentProducts.map(product => (
           <OnSaleCard product={product} key={product.id} />
         ))}

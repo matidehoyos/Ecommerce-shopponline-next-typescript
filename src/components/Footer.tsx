@@ -2,12 +2,12 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="w-full pt-20 pb-10 px-12 bg-gray-600 overflow-hidden">
-      <div className="container py-10 px-20 flex justify-between items-start bg-gray-300">
-        <div className="w-auto flex justify-center">
-          <Image src="/logo.png" alt="Logo Shop online" width={80} height={80} className="w-[80%] h-auto"/>
+    <footer className="w-full py-10 md:pt-20 md:pb-10 px-[3%] md:px-12 bg-gray-400 md:bg-gray-600 overflow-hidden">
+      <div className="container p-4 md:py-10 md:px-20 flex flex-col md:flex-row md:justify-between items-start bg-gray-300">
+        <div className="w-auto flex md:justify-center">
+          <Image src="/logo.png" alt="Logo Shop online" width={80} height={80} className="w-full md:w-[80%] h-auto"/>
         </div>
-        <div>
+        <div className="mt-8 md:mt-0">
           <h3 className="text-gray-700 text-lg font-extrabold mb-2">Policy Info</h3>
           <ul className="font-semibold text-gray-500 hover:text-gray-600 cursor-pointer">
             <li className="mb-2">
@@ -21,7 +21,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="mt-8 md:mt-0">
           <h3 className="text-gray-700 text-lg font-extrabold mb-2">Company</h3>
           <ul className="font-semibold text-gray-500 hover:text-gray-600 cursor-pointer">
             <li className="mb-2">
@@ -32,7 +32,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="mt-8 md:mt-0">
           <h3 className="text-gray-700 text-lg font-extrabold mb-2">Business</h3>
           <ul className="font-semibold text-gray-500 hover:text-gray-600 cursor-pointer">
             <li className="mb-2">
@@ -46,7 +46,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="mt-8 md:mt-0">
           <h3 className="text-gray-700 text-lg font-extrabold mb-2">Subscribe</h3>
           <form>
             <input
@@ -63,7 +63,7 @@ const Footer = () => {
           </form>
         </div>
       </div>
-      <div className="text-center text-gray-200 font-semibold mt-8">
+      <div className="text-center text-gray-900 md:text-gray-200 font-semibold mt-8">
         <p>Copyright 2024, All Rights Reserved.</p>
       </div>
     </footer>

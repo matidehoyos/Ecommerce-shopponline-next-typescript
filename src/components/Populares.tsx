@@ -19,7 +19,7 @@ const Populares = () => {
       } else if (window.innerWidth >= 640) {
         setItemsPerPage(2);
       } else {
-        setItemsPerPage(1);
+        setItemsPerPage(2);
       }
     };
 
@@ -47,8 +47,8 @@ const Populares = () => {
   );
 
   return (
-    <div className='w-[90%] mx-auto pt-14 pb-20'>
-      <div className='mb-6 flex justify-between'>
+    <div className='w-[94%] md:w-[90%] mx-auto pt-8 md:pt-14 pb-4 md:pb-20'>
+      <div className='mb-2 md:mb-6 flex justify-between'>
         <h2 className='text-gray-900 font-bold text-xl'>Popular products</h2>
         <Controls
           currentPage={currentPage}
@@ -58,7 +58,7 @@ const Populares = () => {
           handleNextPage={handleNextPage}
         />
       </div>
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-6">
           {currentProducts.map(product => (
               <ProductCard product={product} key={product.id} />
           ))}
