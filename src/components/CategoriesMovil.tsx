@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useProducts } from '../contexts/productsContext';
+import SearchBar from './SearchBar';
 
 type Category = {
   slug: string;
@@ -24,19 +25,22 @@ const CategoriesMovil = () => {
   }, [products]);
 
   return (
-    <div className="flex flex-col md:hidden">
-      <div className="container px-2 py-4 flex flex-nowrap items-center justify-start gap-[2px] overflow-x-scroll scrollbar-hide">
+    <div className="flex flex-col md:hidden bg-gray-400">
+    <div className="py-4 px-[3%] md:hidden">
+        <SearchBar />
+    </div>
+      <div className="container px-2 pb-4 flex flex-nowrap items-center justify-start gap-[5px] overflow-x-scroll scrollbar-hide">
         <Link
           href="/shop"
-          className="h-[50px] min-w-[120px] flex items-center justify-center p-2 text-red-500 text-lg font-bold text-center rounded-md bg-gray-600 leading-[20px] border border-red-500"
+          className="h-[50px] min-w-[120px] flex items-center justify-center p-2 text-red-100 text-lg font-bold text-center rounded-md bg-red-500 leading-[20px] border border-gray-50"
         >
-          All Products
+          Shop
         </Link>
         {categories.map((category) => (
           <Link
             href={category.url}
             key={category.slug}
-            className="h-[50px] min-w-[130px] flex items-center justify-center text-gray-50 text-lg text-center font-medium rounded-md bg-gray-600 leading-[20px] border border-gray-50"
+            className="h-[50px] min-w-[130px] flex items-center justify-center text-gray-900 text-lg text-center font-medium rounded-md bg-gray-300 leading-[20px] border border-gray-500"
           >
             {category.name}
           </Link>

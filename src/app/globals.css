@@ -7,14 +7,11 @@
   --foreground: #171717;
 }
 
-*::-webkit-scrollbar {
-  display: none;
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #545454;
+    --foreground: #545454;
   }
 }
 
@@ -28,4 +25,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+
+@media only screen and (max-width: 800px) {
+
+  *::-webkit-scrollbar {
+  display: none;
+}
 }

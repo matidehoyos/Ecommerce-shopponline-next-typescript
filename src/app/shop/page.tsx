@@ -6,6 +6,7 @@ import { useLoading } from '../../contexts/loadingContext';
 import ProductCard from '@/components/ProductCard';
 import { Product } from '@/types/Product';
 import Loader from '@/components/Loader';
+import Footer from '@/components/Footer';
 
 export const dynamic = 'force-dynamic';
 
@@ -20,28 +21,26 @@ const ShopPageContent = () => {
   const router = useRouter(); 
   const queryCategory = searchParams.get('category') || 'all';
 
-  const updateProducts = useCallback(() => {
-    setLoading(true);
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    return () => clearTimeout(timeout);
-  }, [setLoading]);
-
   useEffect(() => {
+    setLoading(true); // Activar el loader al iniciar el proceso
     setFilteredProducts(products);
-    updateProducts();
 
     const uniqueCategories = Array.from(new Set(products.map((product) => product.category)));
     setCategories(uniqueCategories);
-  }, [products, updateProducts]);
 
-  const sortedAndFilteredProducts = useMemo(() => {
-    let updatedProducts = [...filteredProducts];
+    // Filtrar productos después de que se hayan establecido
+    let updatedProducts = [...products];
 
     if (queryCategory !== 'all') {
       updatedProducts = updatedProducts.filter(product => product.category.toLowerCase() === queryCategory.toLowerCase());
     }
+
+    setFilteredProducts(updatedProducts);
+    setLoading(false); // Desactivar el loader cuando se actualicen los productos
+  }, [products, queryCategory, setLoading]);
+
+  const sortedAndFilteredProducts = useMemo(() => {
+    let updatedProducts = [...filteredProducts];
 
     if (sortOrder === 'asc') {
       updatedProducts.sort((a, b) => a.price - b.price);
@@ -50,28 +49,22 @@ const ShopPageContent = () => {
     }
 
     return updatedProducts;
-  }, [queryCategory, sortOrder, filteredProducts]);
+  }, [sortOrder, filteredProducts]);
 
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortOrder(e.target.value);
-    updateProducts();
   };
 
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLoading(true); 
     const selectedCategory = e.target.value;
     router.push(`/shop?category=${selectedCategory}`);
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    return () => clearTimeout(timeout);
   };
 
   return (
     <div className="w-full min-h-screen bg-gray-50 md:bg-gray-200">
       {loading && <Loader />}
       <div className="md:w-[94%] px-[3%] md:px-0 py-6 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
-        <div className="mb-4 md:mb-0">
+        <div className="mb-4 md:mb-0 md:hidden">
           <label htmlFor="category" className="mr-2 font-semibold text-gray-600">Filter by Category:</label>
           <select
             id="category"
@@ -107,6 +100,7 @@ const ShopPageContent = () => {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

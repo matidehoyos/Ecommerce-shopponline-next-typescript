@@ -1,12 +1,8 @@
 import Image from "next/image";
-import SearchBar from "./SearchBar";
 
 const Head = () => {
   return (
     <div className=" md:w-[94%] md:mx-auto md:pt-4 md:border md:border-gray-300 rounded-md bg-gradient-to-r from-white to-gray-300">
-        <div className='w-[80%] pt-2 pl-2 md:hidden'>
-          <SearchBar />
-        </div>
         <div className="hidden md:block w-full">
           <Image src="/bggg.png" 
                  layout="responsive" 
@@ -16,7 +12,7 @@ const Head = () => {
                  className="w-full md:h-auto object-cover" />
         </div>
         <div className="w-full md:hidden">
-          <Image src="/bgMovil.png" 
+          <Image src="/bgMovi.png" 
                  layout="responsive" 
                  alt="Logo shoppyfy"  
                  width={400} 

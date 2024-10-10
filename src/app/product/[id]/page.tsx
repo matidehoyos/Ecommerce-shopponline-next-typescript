@@ -10,6 +10,7 @@ import Loader from '@/components/Loader';
 import ProductImage from '@/components/ProductImage';
 import ProductDetailCard from '@/components/ProductDetailCard';
 import RelatedProducts from '@/components/RelatedProducts';
+import Footer from '@/components/Footer';
 
 const ProductDetail = () => {
   const params = useParams();
@@ -79,6 +80,7 @@ const ProductDetail = () => {
         ))}
       </div>
       <RelatedProducts relatedProducts={relatedProducts} />
+      <Footer />
     </div>
   );
 };
