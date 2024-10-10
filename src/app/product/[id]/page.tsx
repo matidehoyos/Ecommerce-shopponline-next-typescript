@@ -56,7 +56,7 @@ const ProductDetail = () => {
   return (
     <div className="w-full min-h-screen flex flex-col bg-gray-200 overflow-hidden">
       {loading && <Loader />}
-      <div className='w-full pt-20 flex items-center justify-center'>
+      <div className='w-full pt-10 md:pt-20 flex flex-col md:flex-row items-center justify-center'>
         {product && (
           <>
             <ProductImage 
@@ -73,7 +73,7 @@ const ProductDetail = () => {
           </>
         )}
       </div>
-      <div className='w-full mx-auto py-20 flex justify-center items-stretch gap-2'>
+      <div className='w-full mx-auto px-4 md:px-0 py-14 md:py-20 flex md:justify-center items-stretch gap-2 overflow-x-scroll'>
         {product?.reviews?.map((review, index) => (
           <ReviewCard review={review} key={index} />
         ))}

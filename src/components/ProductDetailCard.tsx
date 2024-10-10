@@ -14,7 +14,7 @@ interface ProductDetailCardProps {
     }
 
   return (
-    <div className='pl-8 text-black'> 
+    <div className='px-[3%] pt-6 md:pt-0 md:px-0 md:pl-8 text-black'> 
       <p className="font-semibold text-sm opacity-70">{product?.category}</p>
       <h1 className="text-2xl font-bold mt-2">{product?.title}</h1>
       <p className="text-md font-medium mb-4">{product?.brand}</p>
@@ -24,10 +24,10 @@ interface ProductDetailCardProps {
         ))}
       </div>
       <div className='flex items-center justify-start'>
-        <p className="w-auto text-2xl my-6 pl-2 font-semibold">${product?.price}</p>
+        <p className="w-auto text-2xl my-6 md:pl-2 font-semibold">${product?.price}</p>
         <p className="w-auto ml-2 text-sm text-red-300 font-bold">{product?.discountPercentage}% OFF</p>
       </div>
-      <p className="w-[60%] text-md">{product?.description}</p>
+      <p className="w-[86%] md:w-[60%] text-md">{product?.description}</p>
       <div className='mt-4 flex items-center justify-start'>
         <p className="w-auto text-lg font-medium">{product?.stock > 0 ? 'In Stock' : 'Out of Stock'} -</p>
         <p className="w-auto ml-2 text-md font-semibold text-gray-500">{product?.warrantyInformation}</p>

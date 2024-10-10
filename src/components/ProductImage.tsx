@@ -8,7 +8,7 @@ interface ProductImageProps {
 
 const ProductImage: React.FC<ProductImageProps> = ({ images, selectedImage, setSelectedImage }) => {
   return (
-    <div className="w-[90%] flex items-center justify-end">
+    <div className="md:w-[90%] px-[3%] md:px-0 flex md:items-center md:justify-end">
       <div className="flex flex-col">
         {images?.map((image, index) => (
           <Image
@@ -17,14 +17,14 @@ const ProductImage: React.FC<ProductImageProps> = ({ images, selectedImage, setS
             alt={`Product image ${index}`}
             width={100}
             height={100}
-            className={`mb-2 cursor-pointer border ${
+            className={`w-[120px] h-[80px] md:w-[100px] md:h-[100px] mb-1 md:mb-2 md:cursor-pointer border ${
               selectedImage === image ? "border-gray-500" : "border-gray-300"
-            } bg-white`}
+            } bg-white object-contain`}
             onClick={() => setSelectedImage(image)}
           />
         ))}
       </div>
-      <div className="ml-4 overflow-hidden relative group w-[50%] h-auto bg-white border border-gray-300">
+      <div className="ml-4 overflow-hidden relative group md:w-[50%] h-auto bg-white border border-gray-300">
         {selectedImage ? (
           <Image
             src={selectedImage}
