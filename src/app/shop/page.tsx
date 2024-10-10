@@ -1,5 +1,5 @@
 'use client';
-import { Suspense, useEffect, useState, useMemo, useCallback } from 'react';
+import { Suspense, useEffect, useState, useMemo } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useProducts } from '../../contexts/productsContext';
 import { useLoading } from '../../contexts/loadingContext';
@@ -22,13 +22,12 @@ const ShopPageContent = () => {
   const queryCategory = searchParams.get('category') || 'all';
 
   useEffect(() => {
-    setLoading(true); // Activar el loader al iniciar el proceso
+    setLoading(true);
     setFilteredProducts(products);
 
     const uniqueCategories = Array.from(new Set(products.map((product) => product.category)));
     setCategories(uniqueCategories);
 
-    // Filtrar productos después de que se hayan establecido
     let updatedProducts = [...products];
 
     if (queryCategory !== 'all') {
@@ -36,11 +35,11 @@ const ShopPageContent = () => {
     }
 
     setFilteredProducts(updatedProducts);
-    setLoading(false); // Desactivar el loader cuando se actualicen los productos
+    setLoading(false); 
   }, [products, queryCategory, setLoading]);
 
   const sortedAndFilteredProducts = useMemo(() => {
-    let updatedProducts = [...filteredProducts];
+    const updatedProducts = [...filteredProducts];
 
     if (sortOrder === 'asc') {
       updatedProducts.sort((a, b) => a.price - b.price);
