@@ -9,7 +9,6 @@ import Oferts from "@/components/Oferts";
 import Head from "@/components/Head";
 import { useLoading } from '@/contexts/loadingContext';
 import Loader from '@/components/Loader';
-import Categories from '@/components/CategoriesMovil';
 import CategoriesMovil from '@/components/CategoriesMovil';
 
 export default function Home() {

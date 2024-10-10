@@ -2,8 +2,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useProducts } from '../contexts/productsContext';
-import { useLoading } from '@/contexts/loadingContext';
-import { useRouter } from 'next/navigation';
 import SearchBar from './SearchBar';
 
 type Category = {
@@ -14,9 +12,7 @@ type Category = {
 
 const CategoriesMovil = () => {
   const { products } = useProducts();
-  const { setLoading } = useLoading();
   const [categories, setCategories] = useState<Category[]>([]);
-  const router = useRouter();
 
   useEffect(() => {
     const categoryNames = Array.from(new Set(products.map(product => product.category)));

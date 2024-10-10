@@ -16,7 +16,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <Link
         key={product.id}
         href={`/product/${product.id}`}
-        className="w-full sm:w-[49%] md:w-[32%] lg:w-full p-2 flex flex-col items-center border border-gray-400 rounded-lg bg-white mb-4 hover:border-gray-500 hover:shadow-md hover:shadow-gray-500 transition-all"
+        className="sm:w-[49%] md:w-[32%] lg:w-full p-2 flex flex-col items-center border border-gray-400 rounded-lg bg-white mb-4 hover:border-gray-500 hover:shadow-md hover:shadow-gray-500 transition-all"
         >
         <div className="w-full h-[170px] flex justify-center items-center bg-gray-300">
             <Image
