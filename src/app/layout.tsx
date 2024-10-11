@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ProductsProvider } from "@/contexts/productsContext";
-import { LoadingProvider } from "@/contexts/loadingContext";
 import { CartProvider } from "@/contexts/cartContext";
 import NavBar from "@/components/NavBar";
 import CartDrawer from "@/components/CartDrawer";
@@ -36,11 +35,9 @@ export default function RootLayout({
       >
         <CartProvider>
             <ProductsProvider >
-              <LoadingProvider>
                          <NavBar />
                          <CartDrawer />
                          {children}
-              </LoadingProvider>
             </ProductsProvider>
         </CartProvider>
       </body>

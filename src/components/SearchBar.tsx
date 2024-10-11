@@ -15,7 +15,7 @@ const SearchBar = () => {
     const query = e.target.value;
     setSearchQuery(query);
 
-    if (query.length > 0) {
+    if (query) {
       const filteredProducts = products.filter((product) =>
         product.title.toLowerCase().includes(query.toLowerCase())
       );
@@ -27,7 +27,13 @@ const SearchBar = () => {
 
   const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Buscar:', searchQuery);
+    setSearchQuery('');
+    setSuggestedProducts([]);
+  };
+
+  const handleSuggestionClick = (product: Product) => {
+    setSearchQuery('');
+    setSuggestedProducts([]);
   };
 
   return (
@@ -38,19 +44,21 @@ const SearchBar = () => {
           value={searchQuery}
           onChange={handleSearchChange}
           placeholder="Search products..."
-          className="w-full px-2 text-sm text-gray-700 focus:outline-none"
+          className="w-full px-2 text-sm text-gray-700 focus:outline-none focus:ring-0"
+          style={{ touchAction: 'manipulation' }}
+          autoComplete="off"
         />
         <button type="submit" className="px-2 text-gray-700">
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </form>
 
-      {searchQuery.length > 0 && suggestedProducts.length > 0 && (
+      {searchQuery && suggestedProducts.length > 0 && (
         <div className="absolute top-full left-0 w-full bg-white border border-gray-300 rounded-md mt-1 z-10 max-h-60 overflow-y-auto">
           <ul>
             {suggestedProducts.map((product) => (
               <li key={product.id} className="px-2 py-2 hover:bg-gray-200">
-                <Link href={`/product/${product.id}`}>
+                <Link href={`/product/${product.id}`} onClick={() => handleSuggestionClick(product)}>
                   {product.title}
                 </Link>
               </li>
@@ -63,5 +71,6 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+
 
 

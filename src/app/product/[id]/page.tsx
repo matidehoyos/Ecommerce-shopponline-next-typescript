@@ -1,5 +1,4 @@
 'use client';
-
 import { useParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import { useProducts } from '../../../contexts/productsContext';
@@ -55,9 +54,9 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col bg-gray-200 overflow-hidden">
+    <div className="w-full min-h-screen flex flex-col bg-gray-200 md:bg-gradient-to-r from-white to-gray-300 overflow-hidden">
       {loading && <Loader />}
-      <div className='w-full pt-10 md:pt-20 flex flex-col md:flex-row items-center justify-center'>
+      <div className='w-full pt-10 md:pt-16 flex flex-col md:flex-row items-center justify-center'>
         {product && (
           <>
             <ProductImage 

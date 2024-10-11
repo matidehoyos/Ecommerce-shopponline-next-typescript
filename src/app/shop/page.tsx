@@ -2,7 +2,6 @@
 import { Suspense, useEffect, useState, useMemo } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useProducts } from '../../contexts/productsContext';
-import { useLoading } from '../../contexts/loadingContext';
 import ProductCard from '@/components/ProductCard';
 import { Product } from '@/types/Product';
 import Loader from '@/components/Loader';
@@ -12,57 +11,63 @@ export const dynamic = 'force-dynamic';
 
 const ShopPageContent = () => {
   const { products } = useProducts();
-  const { loading, setLoading } = useLoading(); 
+  const [loading, setLoading] = useState<boolean>(false);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [sortOrder, setSortOrder] = useState<string>('none');
   const [categories, setCategories] = useState<string[]>([]);
-
   const searchParams = useSearchParams();
   const router = useRouter(); 
   const queryCategory = searchParams.get('category') || 'all';
 
   useEffect(() => {
-    setLoading(true);
     setFilteredProducts(products);
-
     const uniqueCategories = Array.from(new Set(products.map((product) => product.category)));
     setCategories(uniqueCategories);
 
-    let updatedProducts = [...products];
+    const updateFilteredProducts = () => {
+      let updatedProducts = [...products];
+      if (queryCategory !== 'all') {
+        updatedProducts = updatedProducts.filter(product => product.category.toLowerCase() === queryCategory.toLowerCase());
+      }
+      setFilteredProducts(updatedProducts);
+    };
 
-    if (queryCategory !== 'all') {
-      updatedProducts = updatedProducts.filter(product => product.category.toLowerCase() === queryCategory.toLowerCase());
-    }
+    setLoading(true);
+    const timeout = setTimeout(() => {
+      updateFilteredProducts();
+      setLoading(false);
+    }, 1000);
 
-    setFilteredProducts(updatedProducts);
-    setLoading(false); 
-  }, [products, queryCategory, setLoading]);
+    return () => clearTimeout(timeout);
+  }, [products, queryCategory]);
 
   const sortedAndFilteredProducts = useMemo(() => {
     const updatedProducts = [...filteredProducts];
-
     if (sortOrder === 'asc') {
       updatedProducts.sort((a, b) => a.price - b.price);
     } else if (sortOrder === 'desc') {
       updatedProducts.sort((a, b) => b.price - a.price);
     }
-
     return updatedProducts;
   }, [sortOrder, filteredProducts]);
 
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setLoading(true);
     setSortOrder(e.target.value);
+    setTimeout(() => setLoading(false), 1000);
   };
 
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setLoading(true);
     const selectedCategory = e.target.value;
     router.push(`/shop?category=${selectedCategory}`);
+    setTimeout(() => setLoading(false), 1000);
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-50 md:bg-gray-200">
+    <div className="w-full min-h-screen bg-gray-50 md:bg-gradient-to-r from-white to-gray-300">
       {loading && <Loader />}
-      <div className="md:w-[94%] px-[3%] md:px-0 py-6 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+      <div className="md:w-[94%] px-[3%] md:px-[2%] py-6 md:py-10 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
         <div className="mb-4 md:mb-0 md:hidden">
           <label htmlFor="category" className="mr-2 font-semibold text-gray-600">Filter by Category:</label>
           <select
@@ -87,14 +92,14 @@ const ShopPageContent = () => {
             onChange={handleSortChange}
             className="px-4 py-2 text-gray-700 font-bold border rounded-md border-gray-400"
           >
-            <option className="text-gray-600" value="none">None</option>
-            <option className="text-gray-600" value="asc">Lowest to Highest</option>
-            <option className="text-gray-600" value="desc">Highest to Lowest</option>
+            <option value="none">None</option>
+            <option value="asc">Lowest to Highest</option>
+            <option value="desc">Highest to Lowest</option>
           </select>
         </div>
       </div>
 
-      <div className="md:w-[90%] mt-4 md:mt-6 pb-20 px-[3%] md:px-0 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6">
+      <div className="md:w-[94%] mt-4 md:mt-0 px-[3%] md:px-[2%] pb-20 md:pb-40 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4">
         {sortedAndFilteredProducts.map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}
@@ -113,5 +118,6 @@ const ShopPage = () => {
 };
 
 export default ShopPage;
+
 
 

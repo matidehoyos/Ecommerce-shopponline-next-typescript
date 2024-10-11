@@ -30,13 +30,17 @@ export const ProductsProvider = ({ children }: { children: ReactNode }) => {
       while (true) {
         const response = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`);
         const data = await response.json();
-        const filteredProducts = data.products.filter((product: Product) => product.category !== 'groceries');
+        
+        const filteredProducts = data.products.filter(
+          (product: Product) => product.category !== 'groceries' && product.category !== 'fragrances' && product.category !== 'smartphones'
+        );
+        
         allProducts = [...allProducts, ...filteredProducts];
-
+      
         if (data.products.length < limit) break;
         skip += limit;
       }
-
+      
       setProducts(allProducts);
       setFilteredProducts(allProducts);
     };

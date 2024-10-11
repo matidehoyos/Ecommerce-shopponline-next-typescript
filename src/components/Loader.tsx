@@ -2,9 +2,19 @@ import Image from "next/image";
 
 const Loader = () => {
     return (
-         <div className="w-[30%] mx-auto h-screen flex justify-center items-start pt-32">
-            <Image src="/bgHeader.png" alt="Logo Shoppify" layout="responsive" width={100} height={100} className={`w-full h-auto object-cover`} />
-         </div>  
+      <div className="w-[30%] md:w-full h-screen mx-auto flex justify-center items-start pt-32 md:bg-gradient-to-r from-white to-gray-300">
+      <div className="w-full md:w-[30%]">
+        <Image 
+          src="/bgHeader.png" 
+          alt="Logo Shoppify" 
+          layout="responsive" 
+          width={900} 
+          height={400} 
+          className="object-cover"
+        />
+      </div>
+    </div>
+     
     );
   };
   

@@ -9,12 +9,12 @@ const Oferts = () => {
   const { products } = useProducts();
   const shuffled = useMemo(() => products.filter((product) => product.discountPercentage > 15), [products]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
-        setItemsPerPage(4);
+        setItemsPerPage(5);
       } else if (window.innerWidth >= 768) {
         setItemsPerPage(3);
       } else if (window.innerWidth >= 640) {
@@ -48,9 +48,9 @@ const Oferts = () => {
   );
 
   return (
-    <div className='md:w-[92%] md:my-20 mx-auto pt-14 pb-20 px-[3%] md:px-[2%] md:rounded-md bg-red-200 md:bg-red-300'>
+    <div className='w-[94%] md:w-full mx-auto py-16 md:py-24 md:px-[4%] bg-red-200 md:bg-red-300'>
       <div className='mb-6 flex items-center justify-between'>
-        <h2 className='text-gray-800 font-bold text-xl'>ON SALE</h2>
+        <h2 className='text-gray-800 md:text-gray-50 font-bold md:font-medium text-xl md:text-5xl'>ON SALE</h2>
         <div className='hidden md:block'>
           <Controls
             currentPage={currentPage}
@@ -61,7 +61,7 @@ const Oferts = () => {
           />
       </div>
       </div>
-      <div className="w-full hidden md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-6">
+      <div className="w-full hidden md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1 md:gap-5">
         {currentProducts.map(product => (
           <OnSaleCard product={product} key={product.id} />
         ))}

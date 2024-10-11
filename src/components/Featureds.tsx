@@ -9,12 +9,12 @@ const Featureds = () => {
   const { products } = useProducts();
   const shuffled = useMemo(() => products.sort(() => 0.5 - Math.random()).slice(0, 20), [products]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
-        setItemsPerPage(4);
+        setItemsPerPage(5);
       } else if (window.innerWidth >= 768) {
         setItemsPerPage(3);
       } else if (window.innerWidth >= 640) {
@@ -48,9 +48,9 @@ const Featureds = () => {
   );
 
   return (
-    <div className='w-full px-[3%] md:px-[5%] py-16 md:pt-14 md:pb-20 bg-gray-50'>
+    <div className='w-[94%] md:w-full mx-auto py-16 md:py-24 md:px-[4%] md:bg-gray-300'>
       <div className='mb-2 md:mb-6 flex justify-between'>
-        <h2 className='text-gray-800 md:text-gray-900 md:font-bold text-xl'>Featured products</h2>
+        <h2 className='text-gray-800 md:text-gray-600 md:font-bold text-xl'>Featured products</h2>
         <div className='hidden md:block'>
             <Controls
               currentPage={currentPage}
@@ -61,7 +61,7 @@ const Featureds = () => {
             />
         </div>
       </div>
-      <div className="w-full hidden md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-6">
+      <div className="w-full hidden md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1 md:gap-5">
         {currentProducts.map(product => (
           <ProductCard product={product} key={product.id} />
         ))}
