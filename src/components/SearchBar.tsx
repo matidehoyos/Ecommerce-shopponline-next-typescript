@@ -31,7 +31,7 @@ const SearchBar = () => {
     setSuggestedProducts([]);
   };
 
-  const handleSuggestionClick = (product: Product) => {
+  const handleSuggestionClick = () => {
     setSearchQuery('');
     setSuggestedProducts([]);
   };
@@ -58,7 +58,7 @@ const SearchBar = () => {
           <ul>
             {suggestedProducts.map((product) => (
               <li key={product.id} className="px-2 py-2 hover:bg-gray-200">
-                <Link href={`/product/${product.id}`} onClick={() => handleSuggestionClick(product)}>
+                <Link href={`/product/${product.id}`} onClick={() => handleSuggestionClick()}>
                   {product.title}
                 </Link>
               </li>
