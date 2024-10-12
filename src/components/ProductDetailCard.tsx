@@ -15,7 +15,7 @@ interface ProductDetailCardProps {
 
   return (
     <div className='px-[3%] pt-6 md:pt-0 md:px-0 md:pl-8 text-black'> 
-      <p className="font-semibold text-sm opacity-70">{product?.category}</p>
+      <p className="font-semibold text-md opacity-70">{product?.category}</p>
       <h1 className="text-2xl font-bold mt-2">{product?.title}</h1>
       <p className="text-md font-medium mb-4">{product?.brand}</p>
       <div className="flex">

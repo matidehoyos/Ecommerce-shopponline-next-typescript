@@ -23,10 +23,10 @@ const CartDrawer = () => {
   return (
     <>
       {isOpen && <div className="bg-black opacity-30 fixed inset-0 z-40" onClick={toggleCartDrawer}></div>}
-      <div className={`fixed w-[94%] md:w-[600px] h-[calc(100vh-120px)] md:h-[calc(100%-80px)] pb-20 md:pb-60 right-0 md:right-[3%] md:top-40 bg-white shadow-lg z-50 transition-transform duration-1000 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-[200%]'} overflow-y-scroll`}>
-        <div className='w-full p-4 flex justify-between items-center'>
+      <div className={`fixed w-[94%] md:w-[600px] h-[calc(100vh-120px)] md:h-[calc(100%-80px)] pb-20 md:pb-60 right-0 md:right-[3%] md:top-40 bg-white shadow-lg z-50 transition-transform duration-1000 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-[200%]'} overflow-y-scroll rounded-tl-lg`}>
+        <div className='w-full p-4 mb-4 md:mb-0 flex justify-between items-center'>
           <h2 className="text-xl font-bold text-gray-950">Your cart</h2>
-          <button onClick={toggleCartDrawer} className="font-bold text-2xl text-red-300 hover:text-red-500">X</button>
+          <button onClick={toggleCartDrawer} className="font-bold text-xl md:text-2xl text-red-400 hover:text-red-500">X</button>
         </div>
         <div className='w-full md:mt-6 px-[2%] md:px-4 flex flex-col gap-2'>
           {cart.length === 0 ? (

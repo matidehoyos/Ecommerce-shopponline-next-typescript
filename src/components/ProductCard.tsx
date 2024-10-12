@@ -13,7 +13,6 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
-  const isSmartphone = product.category.toLowerCase() === 'smartphones';
   const isVehicle = product.category.toLowerCase() === 'vehicle';
 
   return (
@@ -23,9 +22,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       className="group w-full md:min-w-[250px] p-1 md:p-2 flex flex-col items-center border border-gray-400 rounded-lg bg-white md:mb-0 md:hover:border-gray-500 md:hover:shadow-md md:hover:shadow-gray-600 transition-all duration-500"
     >
       <div
-        className={`w-full flex justify-center items-center transition-all duration-500 ${
-          isSmartphone ? 'bg-black' : 'bg-gray-300 group-hover:bg-red-300'
-        } overflow-hidden`}
+        className={`w-full flex justify-center items-center transition-all duration-500 bg-gray-300 group-hover:bg-red-300 overflow-hidden`}
         style={{
           height: '200px',
         }}
@@ -37,8 +34,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
           height={200}
           className={`w-[100%] h-[100%] md:min-w-[250px] object-scale-down md:object-contain ${
             isVehicle ? 'scale-[1.8]' : ''
-          } ${
-            isSmartphone ? 'h-[80%]' : ''
           }`}
         />
       </div>

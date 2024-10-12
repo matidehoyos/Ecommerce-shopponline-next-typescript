@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useProducts } from '../contexts/productsContext';
 import SearchBar from './SearchBar';
+import { useRouter } from 'next/navigation';
 
 type Category = {
   slug: string;
@@ -11,6 +12,7 @@ type Category = {
 };
 
 const CategoriesMovil = () => {
+  const router = useRouter();
   const { products } = useProducts();
   const [categories, setCategories] = useState<Category[]>([]);
 
@@ -19,16 +21,20 @@ const CategoriesMovil = () => {
     const categoryObjects = categoryNames.map((category) => ({
       slug: category.toLowerCase().replace(/\s+/g, '-'),
       name: category.replace(/-/g, ' '),
-      url: `/shop?categories/${category.toLowerCase().replace(/\s+/g, '-')}`,
+      url: `/shop?category=${category.toLowerCase().replace(/\s+/g, '-')}`, // Se corrige el typo "caterogy" a "category"
     }));
     setCategories(categoryObjects);
   }, [products]);
 
+  const handleCategoryChange = (categorySlug: string) => {
+    router.push(`/shop?category=${categorySlug}`); 
+  };
+
   return (
     <div className="flex flex-col md:hidden bg-gray-200">
-    <div className="py-4 px-[2%] md:hidden">
+      <div className="py-4 px-[2%] md:hidden">
         <SearchBar />
-    </div>
+      </div>
       <div className="container px-2 pb-4 flex flex-nowrap items-center justify-start gap-[5px] overflow-x-scroll scrollbar-hide">
         <Link
           href="/shop"
@@ -37,13 +43,13 @@ const CategoriesMovil = () => {
           Shop
         </Link>
         {categories.map((category) => (
-          <Link
-            href={category.url}
+          <button
             key={category.slug}
+            onClick={() => handleCategoryChange(category.slug)} // Se usa el slug correcto aquí
             className="h-[50px] min-w-[140px] flex items-center justify-center text-red-400 text-lg text-center font-medium rounded-md bg-white leading-[20px] border border-red-400"
           >
             {category.name}
-          </Link>
+          </button>
         ))}
       </div>
     </div>
@@ -51,3 +57,4 @@ const CategoriesMovil = () => {
 };
 
 export default CategoriesMovil;
+

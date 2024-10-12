@@ -6,6 +6,8 @@ import ProductCard from '@/components/ProductCard';
 import { Product } from '@/types/Product';
 import Loader from '@/components/Loader';
 import Footer from '@/components/Footer';
+import ProductMovilCard from '@/components/ProductMovilCard';
+import MovilShopCard from '@/components/MovilShopCard';
 
 export const dynamic = 'force-dynamic';
 
@@ -65,7 +67,7 @@ const ShopPageContent = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-50 md:bg-gradient-to-r from-white to-gray-300">
+    <div className="w-full min-h-screen bg-gradient-to-r from-white to-gray-300">
       {loading && <Loader />}
       <div className="md:w-[94%] px-[3%] md:px-[2%] py-6 md:py-10 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
         <div className="mb-4 md:mb-0 md:hidden">
@@ -98,10 +100,14 @@ const ShopPageContent = () => {
           </select>
         </div>
       </div>
-
-      <div className="md:w-[94%] mt-4 md:mt-0 px-[3%] md:px-[2%] pb-20 md:pb-40 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-2">
+      <div className="hidden md:w-[94%] mt-4 md:mt-0 px-[3%] md:px-[2%] pb-20 md:pb-40 mx-auto md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-2">
         {sortedAndFilteredProducts.map((product: Product) => (
           <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+      <div className="md:hidden mt-4 px-[3%] pb-20 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-2">
+        {sortedAndFilteredProducts.map((product: Product) => (
+          <MovilShopCard key={product.id} product={product} />
         ))}
       </div>
       <Footer />

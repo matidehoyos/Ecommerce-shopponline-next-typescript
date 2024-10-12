@@ -12,7 +12,7 @@ interface ProductCardProps {
   };
 }
 
-const ProductMovilCard = ({ product }: ProductCardProps) => {
+const MovilShopCard = ({ product }: ProductCardProps) => {
   const isVehicle = product.category.toLowerCase() === 'vehicle';
 
 
@@ -20,7 +20,7 @@ const ProductMovilCard = ({ product }: ProductCardProps) => {
     <Link
         key={product.id}
         href={`/product/${product.id}`}
-        className="w-[300px] p-2 flex flex-col items-center border border-gray-400 rounded-lg bg-white "
+        className="w-full p-2 flex flex-col items-center border border-gray-400 rounded-lg bg-white "
         >
         <div className="w-full flex justify-center items-center bg-gray-100 overflow-hidden" style={{
           height: '150px',
@@ -34,7 +34,7 @@ const ProductMovilCard = ({ product }: ProductCardProps) => {
                  isVehicle ? 'scale-[1.9]' : '' }`}
             />
         </div>
-        <h2 className="w-[250px] mt-2 text-black text-lg font-semibold text-left truncate">
+        <h2 className="w-full mt-2 text-black text-lg font-semibold text-left truncate">
             {product.title}
         </h2>
         <div className="w-full mt-auto flex flex-col justify-between">
@@ -58,4 +58,4 @@ const ProductMovilCard = ({ product }: ProductCardProps) => {
   );
 };
 
-export default ProductMovilCard;
+export default MovilShopCard;

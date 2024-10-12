@@ -54,9 +54,9 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col bg-gray-200 md:bg-gradient-to-r from-white to-gray-300 overflow-hidden">
+    <div className="w-full min-h-screen flex flex-col bg-gradient-to-r from-white to-gray-300 overflow-hidden">
       {loading && <Loader />}
-      <div className='w-full pt-10 md:pt-16 flex flex-col md:flex-row items-center justify-center'>
+      <div className='w-full md:pt-16 flex flex-col md:flex-row items-center justify-center'>
         {product && (
           <>
             <ProductImage 
@@ -73,7 +73,7 @@ const ProductDetail = () => {
           </>
         )}
       </div>
-      <div className='w-full mx-auto px-4 md:px-0 py-14 md:py-20 flex md:justify-center items-stretch gap-2 overflow-x-scroll md:overflow-hidden'>
+      <div className='w-full px-[3%] md:px-0 py-14 md:py-20 flex md:justify-center items-stretch gap-2 overflow-x-scroll md:overflow-hidden'>
         {product?.reviews?.map((review, index) => (
           <ReviewCard review={review} key={index} />
         ))}

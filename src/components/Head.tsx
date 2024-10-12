@@ -16,7 +16,7 @@ const Head = () => {
                 src="/headMov.png" 
                 alt="Logo de ShoppOnline"  
                 width={800} 
-                height={400} 
+                height={800} 
                 className="w-full h-auto object-contain"
                 quality={100} 
               />
