@@ -6,7 +6,6 @@ import ProductCard from '@/components/ProductCard';
 import { Product } from '@/types/Product';
 import Loader from '@/components/Loader';
 import Footer from '@/components/Footer';
-import ProductMovilCard from '@/components/ProductMovilCard';
 import MovilShopCard from '@/components/MovilShopCard';
 
 export const dynamic = 'force-dynamic';
