@@ -12,13 +12,14 @@ const Head = () => {
                  className="w-full md:h-auto object-cover" />
         </div>
         <div className="w-full h-auto md:hidden">
-          <Image 
-            src="/bgMovil.png" 
-            alt="Logo de ShoppOnline"  
-            width={400} 
-            height={300} 
-            className="w-full h-auto object-contain" 
-          />
+            <Image 
+                src="/headMov.png" 
+                alt="Logo de ShoppOnline"  
+                width={800} 
+                height={400} 
+                className="w-full h-auto object-contain"
+                quality={100} 
+              />
         </div>
     </div>
   );

@@ -20,9 +20,9 @@ const ProductImage: React.FC<ProductImageProps> = ({ images, selectedImage, setS
             alt={`Product image ${index}`}
             width={100}
             height={100}
-            className={`w-[120px] h-[80px] md:w-[120px] md:h-[120px] md:cursor-pointer  border ${
-              selectedImage === image ? "border-gray-500" : "border-gray-300"
-            } bg-gray-50 md:bg-gray-100 object-contain md:hover:bg-gray-200`}
+            className={`w-[120px] h-[80px] md:w-[120px] md:h-[120px] md:cursor-pointer  border md:border-2 ${
+              selectedImage === image ? "border-gray-800" : "border-gray-200"
+            } bg-gray-50 md:bg-gray-50 object-contain md:hover:bg-gray-200`}
             onClick={() => setSelectedImage(image)}
           />
         ))}

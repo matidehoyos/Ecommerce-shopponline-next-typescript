@@ -32,7 +32,7 @@ const CategoriesMovil = () => {
       <div className="container px-2 pb-4 flex flex-nowrap items-center justify-start gap-[5px] overflow-x-scroll scrollbar-hide">
         <Link
           href="/shop"
-          className="h-[50px] min-w-[120px] flex items-center justify-center p-2 text-red-100 text-lg font-bold text-center rounded-md bg-red-500 leading-[20px] border border-gray-50"
+          className="h-[50px] min-w-[120px] flex items-center justify-center p-2 text-white text-lg font-bold text-center rounded-md bg-red-400 leading-[20px] border border-gray-50"
         >
           Shop
         </Link>
@@ -40,7 +40,7 @@ const CategoriesMovil = () => {
           <Link
             href={category.url}
             key={category.slug}
-            className="h-[50px] min-w-[140px] flex items-center justify-center text-gray-700 text-lg text-center font-medium rounded-md bg-red-100 leading-[20px] border border-white"
+            className="h-[50px] min-w-[140px] flex items-center justify-center text-red-400 text-lg text-center font-medium rounded-md bg-white leading-[20px] border border-red-400"
           >
             {category.name}
           </Link>

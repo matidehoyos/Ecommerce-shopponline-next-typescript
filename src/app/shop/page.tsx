@@ -99,7 +99,7 @@ const ShopPageContent = () => {
         </div>
       </div>
 
-      <div className="md:w-[94%] mt-4 md:mt-0 px-[3%] md:px-[2%] pb-20 md:pb-40 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4">
+      <div className="md:w-[94%] mt-4 md:mt-0 px-[3%] md:px-[2%] pb-20 md:pb-40 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-2">
         {sortedAndFilteredProducts.map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}

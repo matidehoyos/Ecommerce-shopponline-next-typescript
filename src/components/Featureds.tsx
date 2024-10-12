@@ -48,9 +48,9 @@ const Featureds = () => {
   );
 
   return (
-    <div className='w-[94%] md:w-full mx-auto py-16 md:py-24 md:px-[4%] md:bg-gray-300'>
+    <div className='mx-auto py-10 md:py-24 md:px-[4%] bg-gray-300'>
       <div className='mb-2 md:mb-6 flex justify-between'>
-        <h2 className='text-gray-800 md:text-gray-600 md:font-bold text-xl'>Featured products</h2>
+        <h2 className='pl-[3%] md:pl-0 text-gray-800 md:text-gray-600 md:font-bold text-xl'>Featured products</h2>
         <div className='hidden md:block'>
             <Controls
               currentPage={currentPage}
@@ -61,12 +61,12 @@ const Featureds = () => {
             />
         </div>
       </div>
-      <div className="w-full hidden md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1 md:gap-5">
+      <div className="w-full hidden md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1 md:gap-2">
         {currentProducts.map(product => (
           <ProductCard product={product} key={product.id} />
         ))}
       </div>
-      <div className="w-full flex flex-nowrap overflow-x-scroll md:hidden gap-1">
+      <div className="px-[3%] flex flex-nowrap overflow-x-scroll md:hidden gap-3">
           {shuffled.map(product => (
               <ProductMovilCard product={product} key={product.id} />
           ))}

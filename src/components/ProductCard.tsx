@@ -20,7 +20,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <Link
       key={product.id}
       href={`/product/${product.id}`}
-      className="group w-full p-1 md:p-2 flex flex-col items-center border border-gray-400 rounded-lg bg-white md:mb-0 md:hover:border-gray-500 md:hover:shadow-md md:hover:shadow-gray-600 transition-all duration-500"
+      className="group w-full md:min-w-[250px] p-1 md:p-2 flex flex-col items-center border border-gray-400 rounded-lg bg-white md:mb-0 md:hover:border-gray-500 md:hover:shadow-md md:hover:shadow-gray-600 transition-all duration-500"
     >
       <div
         className={`w-full flex justify-center items-center transition-all duration-500 ${
@@ -35,7 +35,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           alt={product.title}
           width={200}
           height={200}
-          className={`w-[100%] h-[100%] object-scale-down md:object-contain ${
+          className={`w-[100%] h-[100%] md:min-w-[250px] object-scale-down md:object-contain ${
             isVehicle ? 'scale-[1.8]' : ''
           } ${
             isSmartphone ? 'h-[80%]' : ''
