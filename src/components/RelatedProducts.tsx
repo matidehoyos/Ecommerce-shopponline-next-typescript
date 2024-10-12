@@ -17,7 +17,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ relatedProducts }) =>
             <ProductCard product={relatedProduct} key={relatedProduct.id} />
           ))}
         </div>
-        <div className='flex md:hidden px-[3%] md:px-0 mt-4 md:mt-6 pb-4 flex-nowrap gap-2 overflow-x-scroll'>
+        <div className='flex md:hidden px-[3%] md:px-0 mt-4 md:mt-6 pb-4 justify-center flex-nowrap gap-2 overflow-x-scroll'>
           {relatedProducts.map((relatedProduct) => (
             <ProductMovilCard product={relatedProduct} key={relatedProduct.id} />
           ))}
