@@ -48,7 +48,7 @@ const Oferts = () => {
   );
 
   return (
-    <div className='w-full mx-auto py-16 md:py-24 md:px-[4%] bg-red-300'>
+    <div className='w-full mx-auto py-20 md:py-24 md:px-[4%] bg-red-300'>
       <div className='mb-6 flex items-center justify-between'>
         <h2 className='pl-[3%] md:pl-0 text-gray-50 font-medium text-3xl md:text-5xl'>ON SALE</h2>
         <div className='hidden md:block'>

@@ -48,7 +48,7 @@ const Populares = () => {
   );
 
   return (
-    <div className='mx-auto py-10 md:py-24 md:px-[4%] md:bg-gray-100'>
+    <div className='mx-auto py-10 pb-16 md:py-24 md:px-[4%] md:bg-gray-100'>
       <div className='mb-2 md:mb-6 flex justify-between'>
         <h2 className='pl-[3%] md:pl-0 text-gray-800 md:text-gray-600 md:font-bold text-xl'>Popular products</h2>
         <div className='hidden md:block'>

@@ -39,13 +39,13 @@ const SearchBar = () => {
   return (
     <div className="md:block md:w-[380px] relative">
       <form onSubmit={handleSearchSubmit} className="flex border border-gray-400 md:border-gray-300 rounded-md overflow-hidden bg-white py-2">
-        <input
+      <input
           type="text"
           value={searchQuery}
           onChange={handleSearchChange}
           placeholder="Search products..."
-          className="w-full px-2 text-sm text-gray-700 focus:outline-none focus:ring-0"
-          style={{ touchAction: 'manipulation' }}
+          className="w-full px-2 text-sm md:text-base text-gray-700 focus:outline-none focus:ring-0"
+          style={{ touchAction: 'manipulation', fontSize: '16px' }} 
           autoComplete="off"
         />
         <button type="submit" className="px-2 text-gray-700">

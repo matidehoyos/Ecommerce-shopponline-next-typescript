@@ -11,8 +11,8 @@ const ProductImage: React.FC<ProductImageProps> = ({ images, selectedImage, setS
 
 
   return (
-    <div className="md:w-[85%] px-[3%] md:px-0 pt-8 md:pt-0 flex flex-col-reverse md:flex-row items-stretch md:items-strech justify-stretch md:justify-end">
-      <div className="w-full md:w-auto flex md:flex-col gap-1">
+    <div className="md:w-[85%] px-[3%] md:px-0 pt-8 md:pt-0 flex flex-col-reverse md:flex-row items-center md:items-strech justify-center md:justify-end">
+      <div className="w-full md:w-auto flex justify-center md:flex-col gap-1">
         {displayedImages?.map((image, index) => (
           <Image
             key={index}

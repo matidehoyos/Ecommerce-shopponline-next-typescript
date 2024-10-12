@@ -11,14 +11,12 @@ import Image from 'next/image';
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { cart, toggleCartDrawer } = useCart();
-
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
-  
   return (
-    <nav className="w-full text-gray-950 md:text-gray-700 bg-gradient-to-r from-white to-gray-300">
+    <nav className="w-full py-1 md:py-0 pb-2 md:pb-0 pr-[2%] md:pr-0 text-gray-950 md:text-gray-700 bg-gradient-to-r from-white to-gray-300">
       <div className="flex flex-col">
-        <div className="container mb-2 md:mb-0 pt-2 md:py-5 px-1 md:px-[3%] flex justify-between items-center ">
+        <div className="container pt-2 md:py-5 px-1 md:px-[3%] flex justify-between items-center ">
           <Link href="/" aria-label="Go to homepage">
             <Image 
               src="/logo.png" 
@@ -62,18 +60,21 @@ const NavBar = () => {
         </div>
         <Categories />
       </div>
-      {isOpen && (
-        <div className="absolute w-full px-3 py-2 bg-white lg:hidden z-50">
-          <Link href="/login" className="block py-2 font-bold hover:text-red-600">
-            Login
-          </Link>
-          <Link href="/register" className="block py-2 font-bold hover:text-red-600">
-            Register
-          </Link>
-        </div>
-      )}
+      <div
+        className={`absolute mt-2 w-full px-3 py-2 bg-gradient-to-r from-white to-gray-300 lg:hidden z-50 transition-all duration-1000 ease-in-out ${
+          isOpen ? 'max-h-[100vh] opacity-100' : 'max-h-0 opacity-0'
+        } overflow-hidden`}
+      >
+        <Link href="/login" className="block py-2 font-bold">
+          Login
+        </Link>
+        <Link href="/register" className="block py-2 font-bold">
+          Register
+        </Link>
+      </div>
     </nav>
   );
 };
 
 export default NavBar;
+

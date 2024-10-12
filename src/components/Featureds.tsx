@@ -48,7 +48,7 @@ const Featureds = () => {
   );
 
   return (
-    <div className='mx-auto py-10 md:py-24 md:px-[4%] bg-gray-300'>
+    <div className='mx-auto py-16 md:py-24 md:px-[4%] bg-gray-300'>
       <div className='mb-2 md:mb-6 flex justify-between'>
         <h2 className='pl-[3%] md:pl-0 text-gray-800 md:text-gray-600 md:font-bold text-xl'>Featured products</h2>
         <div className='hidden md:block'>
