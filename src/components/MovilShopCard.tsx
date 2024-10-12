@@ -20,7 +20,7 @@ const MovilShopCard = ({ product }: ProductCardProps) => {
     <Link
         key={product.id}
         href={`/product/${product.id}`}
-        className="w-full p-2 flex flex-col items-center border border-gray-400 rounded-lg bg-white "
+        className="w-full p-2 flex flex-col items-center border border-gray-400 rounded-lg bg-white"
         >
         <div className="w-full flex justify-center items-center bg-gray-100 overflow-hidden" style={{
           height: '150px',

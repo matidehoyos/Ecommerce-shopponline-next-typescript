@@ -100,14 +100,14 @@ const ShopPageContent = () => {
           </select>
         </div>
       </div>
-      <div className="hidden md:w-[94%] mt-4 md:mt-0 px-[3%] md:px-[2%] pb-20 md:pb-40 mx-auto md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-2">
-        {sortedAndFilteredProducts.map((product: Product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-      <div className="md:hidden mt-4 px-[3%] pb-20 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-2">
+      <div className="grid md:hidden mt-4 px-[3%] pb-20 mx-auto grid-cols-2 gap-2">
         {sortedAndFilteredProducts.map((product: Product) => (
           <MovilShopCard key={product.id} product={product} />
+        ))}
+      </div>
+      <div className="hidden md:grid w-[94%] mt-0 px-[2%] pb-40 mx-auto grid-cols-3 lg:grid-cols-5 gap-2">
+        {sortedAndFilteredProducts.map((product: Product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
       <Footer />
