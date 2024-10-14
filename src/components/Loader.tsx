@@ -7,7 +7,6 @@ const Loader = () => {
         <Image 
           src="/bgHeader.png" 
           alt="Logo Shoppify" 
-          layout="responsive" 
           width={900} 
           height={400} 
           className="object-cover"

@@ -19,7 +19,7 @@ export default function Home() {
   }, [setLoading]);
 
   return (
-    <div className="w-full pt-[90px] lg:pt-[125px] min-h-screen font-[family-name:var(--font-geist-sans)] bg-gray-200">
+    <div className="w-full pt-[75px] lg:pt-[125px] min-h-screen font-[family-name:var(--font-geist-sans)] bg-gradient-to-r from-white to-gray-300">
       <header>
         {loading && ( <Loader /> )}
         <Head />
