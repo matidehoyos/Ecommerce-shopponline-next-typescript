@@ -54,7 +54,7 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col bg-gradient-to-r from-white to-gray-300 overflow-hidden">
+    <div className="w-full pt-[80px] md:pt-[130px] min-h-screen flex flex-col bg-gradient-to-r from-white to-gray-300 overflow-hidden">
       {loading && <Loader />}
       <div className='w-full md:pt-16 flex flex-col md:flex-row items-center justify-center'>
         {product && (

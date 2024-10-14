@@ -25,14 +25,14 @@ const Categories = () => {
 
   return (
     <div className="hidden md:block w-full overflow-visible">
-      <div className="container w-[94%] mx-auto flex flex-nowrap items-center justify-between rounded-md bg-gray-800">
-        <Link href="/shop" className="px-2 md:px-[25px] md:py-2 text-center text-red-400 text-base md:text-xl font-semibold md:font-bold md:cursor-pointer md:hover:text-red-600 transition-colors duration-500">
+      <div className="container w-[94%] mx-auto mt-2 flex flex-nowrap items-center justify-between rounded-md bg-gray-800">
+        <Link href="/shop" className="px-2 md:px-[25px] md:py-1 text-center text-red-400 md:text-lg font-semibold md:font-bold md:cursor-pointer md:hover:text-red-600 transition-colors duration-500">
           All Products
         </Link>
 
         {Object.keys(groupedCategories).map((mainCategory, index) => (
-          <div key={index} className="md:py-2 relative group md:flex-1">
-            <button className="w-full h-full text-gray-100 text-base md:text-xl font-semibold md:font-bold md:cursor-pointer md:hover:text-red-500 transition-colors duration-500">
+          <div key={index} className="md:py-1 relative group md:flex-1">
+            <button className="w-full h-full text-gray-100 text-lg font-semibold md:font-bold md:cursor-pointer md:hover:text-red-500 transition-colors duration-500">
               {mainCategory}
             </button>
             <div className="w-full py-0 absolute max-h-0 overflow-hidden group-hover:max-h-[200px] bg-gray-800 z-10 transition-height duration-1000">

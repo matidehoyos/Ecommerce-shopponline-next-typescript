@@ -66,7 +66,7 @@ const ShopPageContent = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-r from-white to-gray-300">
+    <div className="w-full pt-[80px] md:pt-[130px] min-h-screen bg-gradient-to-r from-white to-gray-300">
       {loading && <Loader />}
       <div className="md:w-[94%] px-[3%] md:px-[2%] py-6 md:py-10 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
         <div className="mb-4 md:mb-0 md:hidden">

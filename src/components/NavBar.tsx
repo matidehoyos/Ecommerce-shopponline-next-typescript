@@ -16,16 +16,16 @@ const NavBar = () => {
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <nav className="w-full py-1 md:py-0 pb-2 md:pb-0 pr-[2%] md:pr-0 text-gray-950 md:text-gray-700 bg-gradient-to-r from-white to-gray-300">
+    <nav className="w-full fixed py-1 md:py-0 pb-2 md:pb-2 pr-[2%] md:pr-0 text-gray-950 md:text-gray-700 bg-gradient-to-r from-white to-gray-300 z-[1000]">
       <div className="flex flex-col">
-        <div className="container pt-2 md:py-5 px-1 md:px-[3%] md:pr-[4%] flex justify-between items-center ">
+        <div className="container pt-2 md:py-3 px-1 md:px-[3%] md:pr-[4%] flex justify-between items-center ">
           <Link href="/" aria-label="Go to homepage">
             <Image 
               src="/logo.png" 
               alt="Tienda Online Logo" 
-              width={180} 
-              height={70} 
-              className="w-[120px] h-[50px] md:w-[180px] md:h-[70px] object-contain" 
+              width={160} 
+              height={50} 
+              className="w-[120px] h-[50px] md:w-[160px] md:h-[50px] object-contain" 
             />
           </Link>
           <div className='hidden md:block'>
@@ -33,14 +33,18 @@ const NavBar = () => {
           </div>
           <div className="flex items-center justify-end space-x-6 md:space-x-3">
             <div className="relative md:mr-6">
-              <button onClick={toggleCartDrawer} aria-label="View cart">
-                <FontAwesomeIcon icon={faShoppingCart} className="text-2xl md:text-2xl text-gray-900 md:text-gray-700 hover:text-gray-900 relative top-[3px] md:top-0" />
-              </button>
-              {cartCount > 0 && (
-                <span className="inline-flex items-center justify-center md:px-2 py-1 text-sm font-bold leading-none text-red-500 md:text-red-100 bg-transparent md:bg-red-600 md:rounded-full">
-                  {cartCount}
-                </span>
-              )}
+              {
+                cartCount > 0 ? (
+                  <>
+                    <button onClick={toggleCartDrawer} aria-label="View cart">
+                        <FontAwesomeIcon icon={faShoppingCart} className="text-2xl md:text-2xl text-gray-900 md:text-gray-700 hover:text-gray-900 relative top-[3px] md:top-0" />
+                    </button>
+                    <span className="inline-flex items-center justify-center md:px-2 py-1 text-sm font-bold leading-none text-red-500 md:text-red-100 bg-transparent md:bg-red-600 md:rounded-full">
+                      {cartCount}
+                    </span>
+                  </>
+                  ) : null
+              }
             </div>
             {user ? (
               <>
