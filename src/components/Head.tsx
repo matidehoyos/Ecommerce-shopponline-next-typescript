@@ -4,7 +4,7 @@ const Head = () => {
   return (
     <div className="bg-gradient-to-r from-white to-gray-300 border-b-2 border-t-2 md:border-t-0 border-gray-300">
         <div className="hidden w-full md:pt-4 mx-auto md:block">
-          <Image src="/bggg.png" 
+          <Image src="/bgg.png" 
                  layout="responsive" 
                  alt="Logo shoppyfy"  
                  width={100} 

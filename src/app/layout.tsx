@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { ProductsProvider } from "@/contexts/productsContext";
 import { CartProvider } from "@/contexts/cartContext";
 import NavBar from "@/components/NavBar";
 import CartDrawer from "@/components/CartDrawer";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,13 +35,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CartProvider>
-            <ProductsProvider >
-                         <NavBar />
-                         <CartDrawer />
-                         {children}
-            </ProductsProvider>
-        </CartProvider>
+        <UserProvider>
+          <CartProvider>
+              <ProductsProvider >
+                          <NavBar />
+                          <CartDrawer />
+                          {children}
+              </ProductsProvider>
+          </CartProvider>
+        </UserProvider>
       </body>
     </html>
   );

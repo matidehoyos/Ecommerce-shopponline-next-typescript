@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useUser } from '@auth0/nextjs-auth0/client';
 import { useCart } from '../contexts/cartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +10,7 @@ import Categories from './Categories';
 import Image from 'next/image';
 
 const NavBar = () => {
+  const { user } = useUser();
   const [isOpen, setIsOpen] = useState(false);
   const { cart, toggleCartDrawer } = useCart();
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
@@ -16,7 +18,7 @@ const NavBar = () => {
   return (
     <nav className="w-full py-1 md:py-0 pb-2 md:pb-0 pr-[2%] md:pr-0 text-gray-950 md:text-gray-700 bg-gradient-to-r from-white to-gray-300">
       <div className="flex flex-col">
-        <div className="container pt-2 md:py-5 px-1 md:px-[3%] flex justify-between items-center ">
+        <div className="container pt-2 md:py-5 px-1 md:px-[3%] md:pr-[4%] flex justify-between items-center ">
           <Link href="/" aria-label="Go to homepage">
             <Image 
               src="/logo.png" 
@@ -29,8 +31,8 @@ const NavBar = () => {
           <div className='hidden md:block'>
             <SearchBar />
           </div>
-          <div className="flex items-center space-x-6 md:space-x-10">
-            <div className="relative">
+          <div className="flex items-center justify-end space-x-6 md:space-x-3">
+            <div className="relative md:mr-6">
               <button onClick={toggleCartDrawer} aria-label="View cart">
                 <FontAwesomeIcon icon={faShoppingCart} className="text-2xl md:text-2xl text-gray-900 md:text-gray-700 hover:text-gray-900 relative top-[3px] md:top-0" />
               </button>
@@ -40,9 +42,20 @@ const NavBar = () => {
                 </span>
               )}
             </div>
-            <Link href="/register" className="hidden lg:block font-bold hover:text-red-600">
-              SignUp / Login
-            </Link>
+            {user ? (
+              <>
+                <Link href="/api/auth/logout" className="hidden lg:block font-bold hover:text-gray-900">Logout</Link>
+              </>
+            ) : (
+              <>
+                <Link href="/api/auth/login" className="hidden lg:block font-bold hover:text-gray-900">
+                  Register
+                </Link>
+                <Link href="/api/auth/login" className="hidden lg:block font-bold hover:text-gray-900">
+                  LogIn
+                </Link>
+              </>
+            )}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="w-[30px] p-0 lg:hidden text-gray-900 text-center focus:outline-none"
@@ -65,12 +78,22 @@ const NavBar = () => {
           isOpen ? 'max-h-[100vh] opacity-100' : 'max-h-0 opacity-0'
         } overflow-hidden`}
       >
-        <Link href="/login" className="block py-2 font-bold">
-          Login
-        </Link>
-        <Link href="/register" className="block py-2 font-bold">
-          Register
-        </Link>
+        {
+          user ? (
+          <>
+            <Link href="/api/auth/logout" className="lg:hidden text-xl font-bold hover:text-gray-900">Logout</Link>
+          </>
+          ) : (
+            <>
+          <Link href="/api/auth/login" className="block py-2 text-xl font-bold">
+            Login
+          </Link>
+          <Link href="/api/auth/login" className="block py-2 text-xl font-bold">
+            Register
+          </Link>
+          </>
+          )
+        }
       </div>
     </nav>
   );
