@@ -9,19 +9,17 @@ import Loader from '@/components/Loader';
 import CategoriesMovil from '@/components/CategoriesMovil';
 
 export default function Home() {
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+    const timeout = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timeout);
-  }, [setLoading]);
+  }, []);
 
   return (
-    <div className="w-full pt-[75px] lg:pt-[125px] min-h-screen font-[family-name:var(--font-geist-sans)] bg-gradient-to-r from-white to-gray-300">
+    <div className="w-full pt-[75px] lg:pt-[125px] min-h-screen font-geist-sans bg-gradient-to-r from-white to-gray-300">
       <header>
-        {loading && ( <Loader /> )}
+        {loading && <Loader />}
         <Head />
       </header>
       <main>
@@ -30,10 +28,9 @@ export default function Home() {
         <Featureds />
         <Oferts />
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 }
+
 
