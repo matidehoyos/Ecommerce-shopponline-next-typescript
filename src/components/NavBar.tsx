@@ -10,7 +10,7 @@ import Categories from './Categories';
 import Image from 'next/image';
 
 const NavBar = () => {
-  const { user, error, isLoading } = useUser();
+  const { user, isLoading } = useUser();
   const [isOpen, setIsOpen] = useState(false);
   const { cart, toggleCartDrawer } = useCart();
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
