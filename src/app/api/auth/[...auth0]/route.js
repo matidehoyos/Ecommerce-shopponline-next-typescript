@@ -7,6 +7,10 @@ const authOptions = {
   issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL,
 };
 
+export const config = {
+  runtime: 'nodejs', 
+};
+
 export const GET = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -19,4 +23,3 @@ export const GET = async (req, res) => {
 
   return handleAuth(authOptions)(req, res);
 };
-
