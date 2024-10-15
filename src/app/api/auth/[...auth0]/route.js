@@ -7,9 +7,7 @@ const authOptions = {
   issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL,
 };
 
-export const config = {
-  runtime: 'nodejs', 
-};
+export const runtime = "nodejs"; 
 
 export const GET = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
