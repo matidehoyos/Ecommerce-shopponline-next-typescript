@@ -10,7 +10,7 @@ import Categories from './Categories';
 import Image from 'next/image';
 
 const NavBar = () => {
-  const { user } = useUser();
+  const { user, error, isLoading } = useUser();
   const [isOpen, setIsOpen] = useState(false);
   const { cart, toggleCartDrawer } = useCart();
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
@@ -46,20 +46,20 @@ const NavBar = () => {
                   ) : null
               }
             </div>
-            {user ? (
-              <>
-                <Link href="/api/auth/logout" className="hidden lg:block font-bold hover:text-gray-900">Logout</Link>
-              </>
+            {isLoading ? (
+             null
             ) : (
-              <>
-                <Link href="/api/auth/login" className="hidden lg:block font-bold hover:text-gray-900">
-                  Register
-                </Link>
-                <Link href="/api/auth/login" className="hidden lg:block font-bold hover:text-gray-900">
-                  LogIn
-                </Link>
-              </>
-            )}
+            <div>
+              {!user ? (
+                <>
+                  <Link href="/api/auth/login">Register</Link>
+                  <Link href="/api/auth/login">LogIn</Link>
+                </>
+              ) : (
+                <Link href="/api/auth/logout">Logout</Link>
+              )}
+            </div>
+    )}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="w-[30px] p-0 lg:hidden text-gray-900 text-center focus:outline-none"
@@ -83,19 +83,22 @@ const NavBar = () => {
         } overflow-hidden`}
       >
         {
-          user ? (
-          <>
-            <Link href="/api/auth/logout" className="lg:hidden text-xl font-bold hover:text-gray-900">Logout</Link>
-          </>
-          ) : (
+          isLoading ? 
+          null : (
+            !user ? (
             <>
-          <Link href="/api/auth/login" className="block py-2 text-xl font-bold">
-            Login
-          </Link>
-          <Link href="/api/auth/login" className="block py-2 text-xl font-bold">
-            Register
-          </Link>
-          </>
+            <Link href="/api/auth/login" className="block py-2 text-xl font-bold">
+              Login
+            </Link>
+            <Link href="/api/auth/login" className="block py-2 text-xl font-bold">
+              Register
+            </Link>
+            </>
+            ) : (
+            <>
+              <Link href="/api/auth/logout" className="lg:hidden text-xl font-bold hover:text-gray-900">Logout</Link>
+            </>
+            )
           )
         }
       </div>
