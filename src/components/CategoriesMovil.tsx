@@ -33,10 +33,10 @@ const CategoriesMovil = () => {
   };
 
   return (
-    <div className="w-full pb-10 flex justify-start items-stretch lg:hidden bg-gray-200 px-2 pt-6">
+    <div className="w-full pb-6 flex justify-start items-stretch lg:hidden bg-gray-200 px-2 pt-6">
       <Link
         href="/shop"
-        className="block text-white text-xl font-bold text-center bg-red-500 py-2 px-4 rounded-md"
+        className="block text-white text-xl font-bold text-center bg-red-500 py-2 px-4 rounded-md border border-red-700"
       >
         Shop
       </Link>

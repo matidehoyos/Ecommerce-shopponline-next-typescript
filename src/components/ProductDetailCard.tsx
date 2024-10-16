@@ -20,7 +20,7 @@ interface ProductDetailCardProps {
       <p className="text-lg font-medium mb-4">{product?.brand}</p>
       <div className="flex">
         {[...Array(5)].map((_, index) => (
-          <span key={index} className={index < Math.round(product?.rating ?? 0) ? "text-yellow-400 text-2xl" : "text-gray-500 text-2xl"}>★</span>
+          <span key={index} className={index < Math.round(product?.rating ?? 0) ? "text-yellow-600 lg:text-yellow-400 text-2xl" : "text-gray-500 text-2xl"}>★</span>
         ))}
       </div>
       <div className='flex items-center justify-start'>

@@ -12,7 +12,7 @@ const Head = () => {
                  height={2000} 
                  className="w-full h-auto pt-[100px] object-contain" />
         </div>
-        <div className="w-full h-auto lg:hidden">
+        <div className="w-full h-auto pt-5 lg:hidden">
             <Image 
                 src="/headMov.png" 
                 alt="Logo de ShoppOnline"  

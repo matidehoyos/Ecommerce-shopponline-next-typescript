@@ -25,21 +25,21 @@ const NavBar = () => {
               alt="Tienda Online Logo" 
               width={160} 
               height={50} 
-              className="w-[120px] h-[50px] md:w-[160px] md:h-[50px] object-contain" 
+              className="w-[110px] h-[44px] md:w-[160px] md:h-[50px] object-contain" 
             />
           </Link>
           <div className='hidden md:block'>
             <SearchBar setIsOpen={setIsOpen}/>
           </div>
           <div className="flex items-center justify-end space-x-6 md:space-x-3">
-            <div className="relative md:mr-6">
+            <div className="relative -top-[2px] md:top-0 md:mr-6">
               {
                 cartCount > 0 ? (
                   <>
                     <button onClick={toggleCartDrawer} aria-label="View cart">
                         <FontAwesomeIcon icon={faShoppingCart} className="text-2xl md:text-2xl text-gray-900 md:text-gray-700 hover:text-gray-900 relative top-[3px] md:top-0" />
                     </button>
-                    <span className="inline-flex items-center justify-center md:px-2 py-1 text-sm font-bold leading-none text-red-500 md:text-red-100 bg-transparent md:bg-red-600 md:rounded-full">
+                    <span className="inline-flex items-center justify-center px-1 md:px-2 py-[1px] md:py-1 text-xs lg:text-sm font-bold leading-none text-red-50 md:text-red-100 bg-red-400 md:bg-red-600 rounded-sm md:rounded-full">
                       {cartCount}
                     </span>
                   </>
