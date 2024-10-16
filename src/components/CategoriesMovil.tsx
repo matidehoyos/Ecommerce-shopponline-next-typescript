@@ -1,8 +1,8 @@
 'use client';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useProducts } from '../contexts/productsContext';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 type Category = {
   slug: string;
@@ -25,32 +25,36 @@ const CategoriesMovil = () => {
     setCategories(categoryObjects);
   }, [products]);
 
-  const handleCategoryChange = (categorySlug: string) => {
-    router.push(`/shop?category=${categorySlug}`); 
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedCategory = e.target.value;
+    if (selectedCategory) {
+      router.push(`/shop?category=${selectedCategory}`);
+    }
   };
 
   return (
-    <div className="w-full flex flex-col lg:hidden bg-gray-700">
-      <div className="px-2 py-4 md:py-4 flex flex-nowrap items-strech justify-start gap-[5px] md:gap-[8px] overflow-x-scroll">
-        <Link
-          href="/shop"
-          className="h-auto md:h-[60px] w-auto px-4 flex items-center justify-center text-white text-xl font-bold text-center rounded-sm bg-red-600 border border-red-50"
-        >
-          Shop
-        </Link>
+    <div className="w-full pb-10 flex justify-start items-stretch lg:hidden bg-gray-200 px-2 pt-6">
+      <Link
+        href="/shop"
+        className="block text-white text-xl font-bold text-center bg-red-500 py-2 px-4 rounded-md"
+      >
+        Shop
+      </Link>
+      <select
+        onChange={handleCategoryChange}
+        className="px-1 ml-3 flex-1 text-gray-800 text-xl font-bold bg-gray-100 rounded-md border border-red-500"
+      >
+        <option value="">Select a category</option>
         {categories.map((category) => (
-          <button
-            key={category.slug}
-            onClick={() => handleCategoryChange(category.slug)} 
-            className="min-h-[55px] md:h-[60px] min-w-[140px] md:min-w-[160px] p-2 flex items-center justify-center text-gray-700 text-xl text-center font-bold rounded-sm bg-red-200 leading-[20px] border border-red-50"
-            >
+          <option key={category.slug} value={category.slug}>
             {category.name}
-          </button>
+          </option>
         ))}
-      </div>
+      </select>
     </div>
   );
 };
 
 export default CategoriesMovil;
+
 

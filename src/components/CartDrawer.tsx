@@ -23,7 +23,7 @@ const CartDrawer = () => {
   return (
     <>
       {isOpen && <div className="bg-black opacity-40 fixed inset-0 z-[2000]" onClick={toggleCartDrawer}></div>}
-      <div className={`fixed w-[96%] md:w-[640px] h-[calc(100vh-65px)] md:h-[calc(100%-120px)] pb-20 md:pb-60 mt-2 md:mt-0 right-0 md:right-[3%] top-[65px] md:top-[118px] bg-white shadow-lg z-[2000] transition-transform duration-1000 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-[200%]'} overflow-y-scroll rounded-tl-lg`}>
+      <div className={`fixed w-[96%] md:w-[640px] h-[calc(100vh-65px)] md:h-[calc(100%-120px)] pb-20 md:pb-60 mt-2 md:mt-0 right-0 md:right-[2%] top-[65px] md:top-[118px] bg-white shadow-lg z-[2000] transition-transform duration-1000 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-[200%]'} overflow-y-scroll rounded-tl-lg`}>
         <div className='w-full p-4 mb-4 md:mb-0 flex justify-between items-center'>
           <h2 className="text-xl font-bold text-gray-950">Your cart</h2>
           <button onClick={toggleCartDrawer} className="font-bold text-xl md:text-2xl text-red-400 hover:text-red-500">X</button>
@@ -44,18 +44,18 @@ const CartDrawer = () => {
                   />
                 </div>
                 <div className='flex flex-col md:flex-row w-40 md:w-80 md:justify-between pr-2 md:pr-4 gap-2'>
-                    <span className='pl-1 md:pl-2 text-left font-semibold md:font-medium text-md text-gray-800 truncate'>{item.title}</span>
+                    <span className='pl-1 md:pl-2 text-left font-semibold md:font-semibold text-md text-gray-800 truncate'>{item.title}</span>
                     <div className='flex items-center'>
                       <button 
                         onClick={() => handleDecrement(item)} 
                         disabled={item.quantity === 1} 
-                        className={`bg-white text-sm ${item.quantity === 1 ? 'opacity-50 cursor-not-allowed' : 'opacity-100'} text-gray-900 px-2 rounded border border-gray-300 md:hover:scale-110`}>
+                        className={`text-md ${item.quantity === 1 ? 'opacity-50 cursor-not-allowed' : 'opacity-100'} text-gray-900 px-2 rounded border border-red-300 bg-red-300 md:hover:scale-110`}>
                         &ndash;
                       </button> 
                       <span className='mx-2 text-md text-gray-800'>{item.quantity}</span>
                       <button 
                         onClick={() => handleIncrement(item)} 
-                        className='text-sm bg-white text-gray-900 px-2 rounded border border-gray-300 md:hover:scale-110'>
+                        className='text-md text-gray-900 px-2 rounded border border-red-300 bg-red-300 md:hover:scale-110'>
                         +
                       </button> 
                     </div> 

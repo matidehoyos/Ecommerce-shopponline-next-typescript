@@ -11,8 +11,8 @@ const ProductImage: React.FC<ProductImageProps> = ({ images, selectedImage, setS
 
 
   return (
-    <div className="md:w-[100%] px-[3%] md:px-0 pt-4 md:pt-0 flex flex-col-reverse md:flex-row items-center md:items-strech justify-center md:justify-end">
-      <div className="w-full md:w-auto md:h-full flex justify-center md:flex-col md:justify-between gap-1">
+    <div className="lg:w-[100%] px-[3%] lg:px-0 pt-4 lg:pt-0 flex flex-col-reverse lg:flex-row items-center lg:items-strech justify-center lg:justify-end">
+      <div className="w-full lg:w-auto lg:h-full flex justify-center lg:flex-col lg:justify-between gap-1">
         {displayedImages.length > 1 ?
         (
         displayedImages?.map((image, index) => (
@@ -22,9 +22,9 @@ const ProductImage: React.FC<ProductImageProps> = ({ images, selectedImage, setS
             alt={`Product image ${index}`}
             width={140}
             height={140}
-            className={`w-[80px] h-[80px] md:w-[140px] md:h-[140px] md:cursor-pointer object-contain border md:border-2 ${
-              selectedImage === image ? "border-gray-800" : "border-gray-200"
-            } bg-gray-300 md:bg-gray-100 object-contain md:hover:bg-gray-200`}
+            className={`w-[80px] h-[80px] lg:w-[140px] lg:h-[140px] lg:cursor-pointer object-contain border lg:border-2 ${
+              selectedImage === image ? "border-gray-800" : "border-gray-300"
+            } bg-gray-300 lg:bg-gray-300 object-contain lg:hover:bg-gray-200`}
             onClick={() => setSelectedImage(image)}
           />
         )))
@@ -32,7 +32,7 @@ const ProductImage: React.FC<ProductImageProps> = ({ images, selectedImage, setS
         null
       }
       </div>
-      <div className="md:ml-4 relative group md:w-[50%] md:h-full flex items-center justify-center h-auto bg-transparent md:bg-gray-200 md:border border-gray-300 overflow-hidden">
+      <div className="w-full lg:ml-4 relative group lg:w-[50%] lg:h-full flex items-center justify-center h-auto bg-transparent lg:bg-gray-300 lg:border border-gray-300 overflow-hidden">
         {selectedImage ? (
           <Image
             src={selectedImage}
@@ -40,7 +40,7 @@ const ProductImage: React.FC<ProductImageProps> = ({ images, selectedImage, setS
             width={500}
             height={500}
             priority
-            className="w-full object-scale-down md:object-contain h-[240px] md:h-auto md:scale-90 transition-all duration-1000 ease-in-out transform md:group-hover:scale-[2]"
+            className="w-full object-scale-down lg:object-contain h-[240px] lg:h-auto lg:scale-90 transition-all duration-1000 ease-in-out transform lg:group-hover:scale-[2]"
           />
         ) : (
           <div className="w-full h-[500px] flex justify-center items-center bg-gray-200">

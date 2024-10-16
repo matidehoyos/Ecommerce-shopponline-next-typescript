@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic';
 
 const ShopPageContent = () => {
   const { products } = useProducts();
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [sortOrder, setSortOrder] = useState<string>('none');
   const [categories, setCategories] = useState<string[]>([]);
@@ -33,12 +33,10 @@ const ShopPageContent = () => {
       setFilteredProducts(updatedProducts);
     };
 
-    setLoading(true);
     const timeout = setTimeout(() => {
       updateFilteredProducts();
       setLoading(false);
     }, 1000);
-
     return () => clearTimeout(timeout);
   }, [products, queryCategory]);
 
