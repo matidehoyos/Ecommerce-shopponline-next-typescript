@@ -5,12 +5,14 @@ import Image from 'next/image';
 import { CartItem } from '../contexts/cartContext';
 import { BiTrash } from 'react-icons/bi';
 import { loadStripe } from '@stripe/stripe-js';
+import { Stripe } from '@stripe/stripe-js'; 
+
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const CartDrawer = () => {
   const { isOpen, toggleCartDrawer, cart, addToCart, removeFromCart } = useCart();
-  const [stripe, setStripe] = useState<any>(null); 
+  const [stripe, setStripe] = useState<Stripe | null>(null);
 
   useEffect(() => {
     const loadStripeInstance = async () => {
@@ -41,18 +43,20 @@ const CartDrawer = () => {
       },
       body: JSON.stringify({ cartItems: cart }),
     });
-
+  
     const data = await response.json();
-
-    if (data.id) {
+    
+    if (data.id && stripe) { 
       const { error } = await stripe.redirectToCheckout({ sessionId: data.id });
       if (error) {
         console.error('Stripe Checkout Error:', error);
       }
     } else {
-      console.error('Error al crear la sesión de Stripe:', data.error);
+      console.error('Error al crear la sesión de Stripe:', data.error || 'Respuesta inválida de la API');
     }
   };
+  
+  
 
   return (
     <>
