@@ -29,7 +29,8 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ id: session.id });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : 'Error desconocido'; 
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }
