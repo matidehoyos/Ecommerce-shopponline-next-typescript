@@ -29,7 +29,7 @@ const NavBar = () => {
             />
           </Link>
           <div className='hidden md:block'>
-            <SearchBar />
+            <SearchBar setIsOpen={setIsOpen}/>
           </div>
           <div className="flex items-center justify-end space-x-6 md:space-x-3">
             <div className="relative md:mr-6">
@@ -66,9 +66,12 @@ const NavBar = () => {
               aria-label="Toggle menu"
             >
               {!isOpen ? (
-                <svg className="text-gray-900 p-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
+                <Image 
+                    src={'/menu.png'}
+                    alt="Tienda Online Logo" 
+                    width={110} 
+                    height={90} 
+                    className='object-contain' />
               ) : (
                 <FontAwesomeIcon icon={faTimes} className='text-red-500 text-3xl' />
               )}
@@ -78,11 +81,12 @@ const NavBar = () => {
         <Categories />
       </div>
       <div
-        className={`absolute mt-2 w-full px-3 py-2 bg-gradient-to-r from-gray-200 to-gray-500 lg:hidden z-50 transition-all duration-1000 ease-in-out ${
+        className={`absolute mt-2 w-full px-3 py-4 bg-gradient-to-r from-gray-200 to-gray-500 lg:hidden z-50 transition-all duration-1000 ease-in-out ${
           isOpen ? 'max-h-[100vh] opacity-100' : 'max-h-0 opacity-0'
         } overflow-hidden`}
       >
-        <Link href="/" onClick={() => {setIsOpen(!isOpen)}} className="block py-2 text-xl text-red-500 font-bold">
+        <SearchBar setIsOpen={setIsOpen} />
+        <Link href="/" onClick={() => {setIsOpen(!isOpen)}} className="block mt-4 py-2 text-xl text-red-500 font-bold">
           Home
         </Link>
         <Link href="/shop" onClick={() => {setIsOpen(!isOpen)}} className="block py-2 text-xl text-red-500 font-bold">

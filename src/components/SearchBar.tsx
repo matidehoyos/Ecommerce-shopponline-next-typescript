@@ -4,10 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useProducts } from '../contexts/productsContext';
 import Link from 'next/link';
-import { Product } from '../types/Product'; 
+import { Product } from '../types/Product';
 
-const SearchBar = () => {
-  const { products } = useProducts(); 
+interface SearchBarProps {
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ setIsOpen }) => {
+  const { products } = useProducts();
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestedProducts, setSuggestedProducts] = useState<Product[]>([]);
 
@@ -21,7 +25,7 @@ const SearchBar = () => {
       );
       setSuggestedProducts(filteredProducts);
     } else {
-      setSuggestedProducts([]); 
+      setSuggestedProducts([]);
     }
   };
 
@@ -29,17 +33,19 @@ const SearchBar = () => {
     e.preventDefault();
     setSearchQuery('');
     setSuggestedProducts([]);
+    setIsOpen(false); 
   };
 
   const handleSuggestionClick = () => {
     setSearchQuery('');
     setSuggestedProducts([]);
+    setIsOpen(false);
   };
 
   return (
-    <div className="md:block md:w-[380px] relative">
+    <div className="md:w-[380px] relative">
       <form onSubmit={handleSearchSubmit} className="flex border border-gray-400 md:border-gray-300 rounded-md overflow-hidden bg-white py-2">
-      <input
+        <input
           type="text"
           value={searchQuery}
           onChange={handleSearchChange}
@@ -58,7 +64,7 @@ const SearchBar = () => {
           <ul>
             {suggestedProducts.map((product) => (
               <li key={product.id} className="px-2 py-2 hover:bg-gray-200">
-                <Link href={`/product/${product.id}`} onClick={() => handleSuggestionClick()}>
+                <Link href={`/product/${product.id}`} onClick={handleSuggestionClick}>
                   {product.title}
                 </Link>
               </li>

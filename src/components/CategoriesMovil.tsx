@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useProducts } from '../contexts/productsContext';
-import SearchBar from './SearchBar';
 import { useRouter } from 'next/navigation';
 
 type Category = {
@@ -31,11 +30,8 @@ const CategoriesMovil = () => {
   };
 
   return (
-    <div className="w-full flex flex-col lg:hidden bg-gradient-to-r from-gray-200 to-gray-500">
-      <div className="py-4 px-[2%] md:hidden">
-        <SearchBar />
-      </div>
-      <div className="px-2 pb-4 md:py-4 flex flex-nowrap items-strech justify-start gap-[5px] md:gap-[8px] overflow-x-scroll">
+    <div className="w-full flex flex-col lg:hidden bg-gray-700">
+      <div className="px-2 py-4 md:py-4 flex flex-nowrap items-strech justify-start gap-[5px] md:gap-[8px] overflow-x-scroll">
         <Link
           href="/shop"
           className="h-auto md:h-[60px] w-auto px-4 flex items-center justify-center text-white text-xl font-bold text-center rounded-sm bg-red-600 border border-red-50"
@@ -46,7 +42,7 @@ const CategoriesMovil = () => {
           <button
             key={category.slug}
             onClick={() => handleCategoryChange(category.slug)} 
-            className="min-h-[55px] md:h-[60px] min-w-[140px] md:min-w-[160px] p-2 flex items-center justify-center text-gray-500 text-xl text-center font-bold rounded-sm bg-red-200 leading-[20px] border border-red-50"
+            className="min-h-[55px] md:h-[60px] min-w-[140px] md:min-w-[160px] p-2 flex items-center justify-center text-gray-700 text-xl text-center font-bold rounded-sm bg-red-200 leading-[20px] border border-red-50"
             >
             {category.name}
           </button>

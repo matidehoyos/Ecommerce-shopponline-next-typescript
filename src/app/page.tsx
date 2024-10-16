@@ -17,7 +17,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full pt-[60px] lg:pt-[105px] min-h-screen font-geist-sans bg-gradient-to-r from-white to-gray-300">
+    <div className="w-full pt-[60px] lg:pt-[105px] min-h-screen font-geist-sans bg-gradient-to-r from-gray-200 to-gray-500">
       <header>
         {loading && <Loader />}
         <Head />

@@ -18,7 +18,7 @@ const Head = () => {
                 alt="Logo de ShoppOnline"  
                 width={1600} 
                 height={1200} 
-                className="w-full h-[400px] object-cover"
+                className="w-full h-[320px] object-cover"
                 quality={100} 
               />
         </div>
