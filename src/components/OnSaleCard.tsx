@@ -16,7 +16,7 @@ const OnSaleCard = ({ product }: ProductCardProps) => {
         <p className='w-auto py-1 px-1 md:px-2 absolute left-0 top-0 md:font-bold text-white bg-red-500'>
             {Math.ceil(product.discountPercentage)}<span className='md:font-medium'>% OFF!</span> 
         </p>    
-        <div className="w-full md:h-[240px] flex justify-center items-center bg-gray-300 group-hover:bg-gray-400 transition-colors duration-500">
+        <div className="w-full md:h-[240px] flex justify-center items-center bg-gray-200 group-hover:bg-gray-400 transition-colors duration-500">
             <Image
             src={product.thumbnail}
             alt={product.title}

@@ -16,9 +16,9 @@ const NavBar = () => {
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <nav className="w-full fixed py-1 md:py-0 pb-2 md:pb-2 pr-[2%] md:pr-0 text-gray-950 md:text-gray-700 bg-gradient-to-r from-white to-gray-300 z-[1000]">
+    <nav className="w-full fixed py-1 md:py-0 pb-2 md:pb-[2px] pr-[2%] md:pr-0 text-gray-950 md:text-gray-700 bg-gradient-to-r from-gray-200 to-gray-500 border-b md:border-b-0 border-gray-600 z-[1000]">
       <div className="flex flex-col">
-        <div className="container pt-2 md:py-3 px-1 md:px-[3%] md:pr-[4%] flex justify-between items-center ">
+        <div className="w-[100%] pt-2 md:py-3 px-1 md:px-[2%] md:pr-[3%] flex justify-between items-center">
           <Link href="/" aria-label="Go to homepage">
             <Image 
               src="/logo.png" 
@@ -48,10 +48,10 @@ const NavBar = () => {
             </div>
             {!user ? (
               <>
-                <Link href="/api/auth/login" className="hidden lg:block font-bold hover:text-gray-900">
+                <Link href="/api/auth/login" className="hidden lg:block font-medium text-gray-200 hover:text-gray-900">
                   Register
                 </Link>
-                <Link href="/api/auth/login" className="hidden lg:block font-bold hover:text-gray-900">
+                <Link href="/api/auth/login" className="hidden lg:block font-medium text-gray-200 hover:text-gray-900">
                   LogIn
                 </Link>
               </>
@@ -70,7 +70,7 @@ const NavBar = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
               ) : (
-                <FontAwesomeIcon icon={faTimes} className='text-2xl' />
+                <FontAwesomeIcon icon={faTimes} className='text-red-500 text-3xl' />
               )}
             </button>
           </div>
@@ -78,10 +78,16 @@ const NavBar = () => {
         <Categories />
       </div>
       <div
-        className={`absolute mt-2 w-full px-3 py-2 bg-gradient-to-r from-white to-gray-300 lg:hidden z-50 transition-all duration-1000 ease-in-out ${
+        className={`absolute mt-2 w-full px-3 py-2 bg-gradient-to-r from-gray-200 to-gray-500 lg:hidden z-50 transition-all duration-1000 ease-in-out ${
           isOpen ? 'max-h-[100vh] opacity-100' : 'max-h-0 opacity-0'
         } overflow-hidden`}
       >
+        <Link href="/" onClick={() => {setIsOpen(!isOpen)}} className="block py-2 text-xl text-red-500 font-bold">
+          Home
+        </Link>
+        <Link href="/shop" onClick={() => {setIsOpen(!isOpen)}} className="block py-2 text-xl text-red-500 font-bold">
+          Shop
+        </Link>
         {
           !user ? (
           <>

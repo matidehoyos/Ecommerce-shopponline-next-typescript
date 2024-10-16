@@ -66,9 +66,9 @@ const ShopPageContent = () => {
   };
 
   return (
-    <div className="w-full pt-[80px] md:pt-[130px] min-h-screen bg-gradient-to-r from-white to-gray-300">
+    <div className="w-full pt-[80px] md:pt-[120px] min-h-screen bg-gradient-to-r from-gray-200 to-gray-500">
       {loading && <Loader />}
-      <div className="md:w-[94%] px-[3%] md:px-[2%] py-6 md:py-10 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+      <div className="md:w-full px-[3%] md:px-[2%] py-6 md:py-10 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
         <div className="mb-4 md:mb-0 md:hidden">
           <label htmlFor="category" className="mr-2 font-semibold text-gray-600">Filter by Category:</label>
           <select
@@ -104,7 +104,7 @@ const ShopPageContent = () => {
           <MovilShopCard key={product.id} product={product} />
         ))}
       </div>
-      <div className="hidden md:grid w-[94%] mt-0 px-[2%] pb-40 mx-auto grid-cols-3 lg:grid-cols-5 gap-2">
+      <div className="hidden md:grid w-[94%] mt-0 px-[2%] pb-40 mx-auto grid-cols-3 lg:grid-cols-5 gap-x-3 gap-y-4">
         {sortedAndFilteredProducts.map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}

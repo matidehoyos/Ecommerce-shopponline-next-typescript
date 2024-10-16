@@ -13,19 +13,23 @@ const Oferts = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setItemsPerPage(5);
-      } else if (window.innerWidth >= 768) {
-        setItemsPerPage(3);
-      } else if (window.innerWidth >= 640) {
+      const width = window.innerWidth;
+      
+      if (width >= 1400) {
+        setItemsPerPage(5); 
+      } else if (width >= 1200) {
+        setItemsPerPage(4); 
+      } else if (width >= 940) {
+        setItemsPerPage(3); 
+      } else if (width >= 640) {
         setItemsPerPage(2);
       } else {
-        setItemsPerPage(2);
+        setItemsPerPage(1);
       }
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); 
+    handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -61,7 +65,7 @@ const Oferts = () => {
           />
       </div>
       </div>
-      <div className="w-full hidden md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1 md:gap-2">
+      <div className="hidden md:grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
         {currentProducts.map(product => (
           <OnSaleCard product={product} key={product.id} />
         ))}

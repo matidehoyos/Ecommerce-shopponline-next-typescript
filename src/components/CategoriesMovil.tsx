@@ -21,7 +21,7 @@ const CategoriesMovil = () => {
     const categoryObjects = categoryNames.map((category) => ({
       slug: category.toLowerCase().replace(/\s+/g, '-'),
       name: category.replace(/-/g, ' '),
-      url: `/shop?category=${category.toLowerCase().replace(/\s+/g, '-')}`, // Se corrige el typo "caterogy" a "category"
+      url: `/shop?category=${category.toLowerCase().replace(/\s+/g, '-')}`, 
     }));
     setCategories(categoryObjects);
   }, [products]);
@@ -31,23 +31,23 @@ const CategoriesMovil = () => {
   };
 
   return (
-    <div className="flex flex-col md:hidden bg-gray-200">
+    <div className="w-full flex flex-col lg:hidden bg-gradient-to-r from-gray-200 to-gray-500">
       <div className="py-4 px-[2%] md:hidden">
         <SearchBar />
       </div>
-      <div className="container px-2 pb-4 flex flex-nowrap items-center justify-start gap-[5px] overflow-x-scroll scrollbar-hide">
+      <div className="px-2 pb-4 md:py-4 flex flex-nowrap items-strech justify-start gap-[5px] md:gap-[8px] overflow-x-scroll">
         <Link
           href="/shop"
-          className="h-[50px] min-w-[120px] flex items-center justify-center p-2 text-white text-lg font-bold text-center rounded-md bg-red-400 leading-[20px] border border-gray-50"
+          className="h-auto md:h-[60px] w-auto px-4 flex items-center justify-center text-white text-xl font-bold text-center rounded-sm bg-red-600 border border-red-50"
         >
           Shop
         </Link>
         {categories.map((category) => (
           <button
             key={category.slug}
-            onClick={() => handleCategoryChange(category.slug)} // Se usa el slug correcto aquí
-            className="h-[50px] min-w-[140px] flex items-center justify-center text-red-400 text-lg text-center font-medium rounded-md bg-white leading-[20px] border border-red-400"
-          >
+            onClick={() => handleCategoryChange(category.slug)} 
+            className="min-h-[55px] md:h-[60px] min-w-[140px] md:min-w-[160px] p-2 flex items-center justify-center text-gray-500 text-xl text-center font-bold rounded-sm bg-red-200 leading-[20px] border border-red-50"
+            >
             {category.name}
           </button>
         ))}

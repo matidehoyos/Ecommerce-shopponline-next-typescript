@@ -20,17 +20,17 @@ interface ProductDetailCardProps {
       <p className="text-md font-medium mb-4">{product?.brand}</p>
       <div className="flex">
         {[...Array(5)].map((_, index) => (
-          <span key={index} className={index < Math.round(product?.rating ?? 0) ? "text-yellow-600 text-2xl" : "text-gray-500 text-2xl"}>★</span>
+          <span key={index} className={index < Math.round(product?.rating ?? 0) ? "text-yellow-400 text-2xl" : "text-gray-500 text-2xl"}>★</span>
         ))}
       </div>
       <div className='flex items-center justify-start'>
-        <p className="w-auto text-2xl my-6 md:pl-2 font-semibold">${product?.price}</p>
-        <p className="w-auto ml-2 text-sm text-red-300 font-bold">{product?.discountPercentage}% OFF</p>
+        <p className="w-auto text-2xl my-6 font-semibold">${product?.price}</p>
+        <p className="w-auto ml-2 text-sm text-red-600 font-bold">{product?.discountPercentage}% OFF</p>
       </div>
       <p className="w-[86%] md:w-[60%] text-md">{product?.description}</p>
       <div className='mt-4 flex items-center justify-start'>
         <p className="w-auto text-lg font-medium">{product?.stock > 0 ? 'In Stock' : 'Out of Stock'} -</p>
-        <p className="w-auto ml-2 text-md font-semibold text-gray-500">{product?.warrantyInformation}</p>
+        <p className="w-auto ml-2 text-md font-semibold text-gray-600">{product?.warrantyInformation}</p>
       </div>
       <div className="flex items-stretch mt-8">
         <div className="flex items-center">

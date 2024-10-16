@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #dfdfdf;
-  --foreground: #dfdfdf;
+  --background: #ff4f4f;
+  --foreground: #ff4f4f;
 }
 
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #545454;
-    --foreground: #545454;
+    --background: #ff4f4f;
+    --foreground: #ff4f4f;
   }
 }
 
@@ -28,8 +28,7 @@ body {
 }
 
 
-@media only screen and (max-width: 800px) {
-
+@media only screen and (max-width: 1024px) {
   *::-webkit-scrollbar {
   display: none;
 }

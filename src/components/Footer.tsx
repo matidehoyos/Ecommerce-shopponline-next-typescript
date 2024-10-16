@@ -3,7 +3,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="w-full pt-10 pb-4 md:pt-20 md:pb-0 bg-gray-800 overflow-hidden">
-      <div className="container p-4 md:py-0 md:px-12 flex flex-col md:flex-row md:justify-between items-start bg-transparent">
+      <div className="container p-4 lg:py-0 lg:px-12 flex flex-col lg:flex-row lg:justify-between items-start bg-transparent">
         <div className="w-auto flex md:justify-center">
           <a href="/">
             <Image src="/logoFooter.png" alt="Logo Shop online" width={200} height={100} className="w-[160px] md:w-[200px] h-auto"/>

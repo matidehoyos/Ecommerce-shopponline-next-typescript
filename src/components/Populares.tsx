@@ -13,14 +13,18 @@ const Populares = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setItemsPerPage(5);
-      } else if (window.innerWidth >= 768) {
-        setItemsPerPage(3);
-      } else if (window.innerWidth >= 640) {
+      const width = window.innerWidth;
+      
+      if (width >= 1400) {
+        setItemsPerPage(5); 
+      } else if (width >= 1200) {
+        setItemsPerPage(4); 
+      } else if (width >= 940) {
+        setItemsPerPage(3); 
+      } else if (width >= 640) {
         setItemsPerPage(2);
       } else {
-        setItemsPerPage(2);
+        setItemsPerPage(1);
       }
     };
 
@@ -48,9 +52,9 @@ const Populares = () => {
   );
 
   return (
-    <div className='mx-auto py-10 pb-16 md:py-24 md:px-[4%] md:bg-gray-100'>
+    <div className='mx-auto py-10 pb-16 md:py-24 md:px-[4%] bg-gray-200 md:bg-gray-300'>
       <div className='mb-2 md:mb-6 flex justify-between'>
-        <h2 className='pl-[3%] md:pl-0 text-gray-800 md:text-gray-600 md:font-bold text-xl'>Popular products</h2>
+        <h2 className='pl-[3%] md:pl-0 text-gray-800 font-bold text-xl'>Popular products</h2>
         <div className='hidden md:block'>
           <Controls
             currentPage={currentPage}
@@ -61,8 +65,8 @@ const Populares = () => {
           />
         </div>
       </div>
-      <div className="w-full hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-1 md:gap-2">
-          {currentProducts.map(product => (
+      <div className="hidden md:grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+        {currentProducts.map(product => (
               <ProductCard product={product} key={product.id} />
           ))}
       </div>
