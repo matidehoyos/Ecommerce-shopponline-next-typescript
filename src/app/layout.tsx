@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   title: "ShopOnline - Your One Stop Online Shop",
   description: "Discover a wide range of products at ShopOnline, where quality meets convenience.",
   icons: {
-    icon: '/icon.png',
   },
   openGraph: {
     title: 'ShopOnline',

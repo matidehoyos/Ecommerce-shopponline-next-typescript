@@ -81,7 +81,7 @@ const NavBar = () => {
         <Categories />
       </div>
       <div
-        className={`absolute mt-2 w-full px-3 py-4 bg-gradient-to-r from-gray-200 to-gray-500 lg:hidden z-50 transition-all duration-1000 ease-in-out ${
+        className={`absolute mt-2 w-full h-screen px-3 py-4 bg-gradient-to-r from-gray-200 to-gray-500 lg:hidden z-50 transition-all duration-1000 ease-in-out ${
           isOpen ? 'max-h-[100vh] opacity-100' : 'max-h-0 opacity-0'
         } overflow-hidden`}
       >
