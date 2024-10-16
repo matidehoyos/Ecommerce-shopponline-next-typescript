@@ -37,9 +37,9 @@ const NavBar = () => {
                 cartCount > 0 ? (
                   <>
                     <button onClick={toggleCartDrawer} aria-label="View cart">
-                        <FontAwesomeIcon icon={faShoppingCart} className="text-2xl md:text-2xl text-gray-900 md:text-gray-700 hover:text-gray-900 relative top-[3px] md:top-0" />
+                        <FontAwesomeIcon icon={faShoppingCart} className="text-2xl md:text-2xl text-gray-900 md:text-gray-800 hover:text-gray-900 relative top-[3px] md:top-0" />
                     </button>
-                    <span className="inline-flex items-center justify-center px-1 md:px-2 py-[1px] md:py-1 text-xs lg:text-sm font-bold leading-none text-red-50 md:text-red-100 bg-red-400 md:bg-red-600 rounded-sm md:rounded-full">
+                    <span className="inline-flex items-center justify-center px-1 md:px-2 py-[1px] text-xs lg:text-sm font-bold leading-none text-red-50 bg-red-400 md:bg-red-500 rounded-sm md:rounded-full">
                       {cartCount}
                     </span>
                   </>
@@ -73,7 +73,7 @@ const NavBar = () => {
                     height={90} 
                     className='object-contain' />
               ) : (
-                <FontAwesomeIcon icon={faTimes} className='text-red-500 text-3xl' />
+                <FontAwesomeIcon icon={faTimes} className='text-red-700 text-3xl' />
               )}
             </button>
           </div>
