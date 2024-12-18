@@ -66,7 +66,7 @@ const ShopPageContent = () => {
   return (
     <div className="w-full pt-[80px] md:pt-[120px] min-h-screen bg-gradient-to-r from-gray-200 to-gray-500">
       {loading && <Loader />}
-      <div className="md:w-full px-[3%] md:px-[2%] py-6 md:py-10 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+      <div className="md:w-full px-[3%] md:px-[2%] py-6 md:py-9 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
         <div className="mb-4 md:mb-0 md:hidden">
           <label htmlFor="category" className="mr-2 font-semibold text-gray-600">Filter by Category:</label>
           <select
