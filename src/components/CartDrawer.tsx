@@ -35,7 +35,7 @@ const CartDrawer = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
 
-  const handleCheckout = async () => {
+  {/*const handleCheckout = async () => {
     const response = await fetch('/api/checkout', {
       method: 'POST',
       headers: {
@@ -55,7 +55,7 @@ const CartDrawer = () => {
       console.error('Error al crear la sesión de Stripe:', data.error || 'Respuesta inválida de la API');
     }
   };
-  
+  */}
   
 
   return (
