@@ -35,27 +35,6 @@ const CartDrawer = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
 
-  {/*const handleCheckout = async () => {
-    const response = await fetch('/api/checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ cartItems: cart }),
-    });
-  
-    const data = await response.json();
-    
-    if (data.id && stripe) { 
-      const { error } = await stripe.redirectToCheckout({ sessionId: data.id });
-      if (error) {
-        console.error('Stripe Checkout Error:', error);
-      }
-    } else {
-      console.error('Error al crear la sesión de Stripe:', data.error || 'Respuesta inválida de la API');
-    }
-  };
-  */}
   
 
   return (
