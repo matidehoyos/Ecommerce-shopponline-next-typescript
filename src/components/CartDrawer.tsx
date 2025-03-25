@@ -110,9 +110,9 @@ const CartDrawer = () => {
              <p className='font-bold text-xl text-gray-900'>Total: ${calculateTotal()}</p>
            </div>
            <div className='px-4 mt-6 flex justify-end'>
-             <button onClick={handleCheckout} className='bg-blue-600 text-white px-4 py-2 rounded-md font-semibold'>
+             {/*<button onClick={handleCheckout} className='bg-blue-600 text-white px-4 py-2 rounded-md font-semibold'>
                Checkout with Stripe
-             </button>
+             </button>*/}
            </div>
          </>
         )}
